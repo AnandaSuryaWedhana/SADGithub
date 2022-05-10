@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Readex+Pro&display=swap");
+.seperatediv {
+  display: flex;
+}
+.container{
+    margin-top: 10px;
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
