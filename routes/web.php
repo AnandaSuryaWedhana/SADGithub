@@ -41,3 +41,13 @@ return view('updatedeletepembeli',[
 "title" => "updatedeletepembeli"
     ]);
 });
+Route::get('/updatedeleteoperator',function(){
+    return view('updatedeleteoperator',[
+        "title" => "updatedeleteoperator"
+    ]);
+});
+Route::get('/updateoperator',function(){
+    return view('updateoperator',[
+        "title" => "updateoperator"
+    ]);
+});
