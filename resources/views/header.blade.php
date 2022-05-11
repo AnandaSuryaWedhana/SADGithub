@@ -22,7 +22,7 @@
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "entrypembeli" or $title === "updatedeletepembeli" or $title === "updatepembeli") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Pembeli
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,7 +36,7 @@
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "Entry operator" or $title === "updatedeleteoperator" or $title === "updateoperator") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Operator
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -47,7 +47,7 @@
             </li>
             <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduk") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Laporan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
