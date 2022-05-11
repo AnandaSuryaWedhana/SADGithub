@@ -11,8 +11,9 @@
   </head>
   <body>
       @include('partials.partialnavbar')
-    <div class="container">
-      <div class="table-responsive">
+    <div class="container mt-5">
+        <h1 class="text-center">Update & Delete Pembeli</h1>
+      <div class="table-responsive mt-4">
 
         <!--Table-->
         <table class="table table-striped table-hover ">
