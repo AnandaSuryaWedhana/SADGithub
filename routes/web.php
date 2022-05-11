@@ -51,3 +51,8 @@ Route::get('/updateoperator',function(){
         "title" => "updateoperator"
     ]);
 });
+Route::get('/laporantransaksi',function(){
+    return view('laporantransaksi',[
+        "title" => "laporantransaksi"
+    ]);
+});
