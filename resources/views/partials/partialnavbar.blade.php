@@ -36,12 +36,12 @@
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "Entry operator") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ ($title === "Entry operator" or $title === "updatedeleteoperator" or $title === "updateoperator") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Operator
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entryoperator">Entry Operator</a></li>
-                      <li><a class="dropdown-item" href="/listoperator">Update Pembeli & Delete Operator</a></li>
+                      <li><a class="dropdown-item" href="/updatedeleteoperator">Update Pembeli & Delete Operator</a></li>
                     </ul>
                   </li>
             </li>
