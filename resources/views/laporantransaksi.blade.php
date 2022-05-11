@@ -7,13 +7,19 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <title>Hello, world!</title>
   </head>
   <body>
     @include('partials.partialnavbar')
     <div class="container mt-5">
         <h1 class="text-center mb-4">Laporan Transaksi</h1>
-      <div class="table-responsive">
+        <div class="p-3 mb-2 bg-secondary text-white rounded">
+          <form action="" method="post">
+            <label for="exampleFormControlInput1" class="form-label">Pilih Tanggal :</label>
+            <input class="form-control" type="datetime-local" name="tanggal" placeholder="Select DateTime">
+          </form>
+        </div>
 
         <!--Table-->
         <table class="table table-striped table-hover ">
@@ -85,5 +91,9 @@
         </table>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      flatpickr("input[type=datetime-local]", {});
+    </script>
   </body>
 </html>
