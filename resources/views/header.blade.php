@@ -22,14 +22,12 @@
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "entrypembeli" or $title === "updatepembeli") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ ($title === "entrypembeli" or $title === "updatedeletepembeli" or $title === "updatepembeli") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Pembeli
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entrypembeli">Entry Pembeli</a></li>
-                      <li><a class="dropdown-item" href="/updatepembeli">Update Pembeli</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Delete Pembeli</a></li>
+                      <li><a class="dropdown-item" href="/updatedeletepembeli">Update & Delete Pembeli</a></li>
                     </ul>
                   </li>
              </li>
@@ -38,12 +36,23 @@
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "Entry operator") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Pembeli
+                    <a class="nav-link dropdown-toggle {{ ($title === "Entry operator" or $title === "updatedeleteoperator" or $title === "updateoperator") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Operator
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entryoperator">Entry Operator</a></li>
-                      <li><a class="dropdown-item" href="/listoperator">Update Pembeli & Delete Operator</a></li>
+                      <li><a class="dropdown-item" href="/updatedeleteoperator">Update Pembeli & Delete Operator</a></li>
+                    </ul>
+                  </li>
+            </li>
+            <li class="nav-item">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduk") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Laporan
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/laporantransaksi">Laporan Transkasi</a></li>
+                      <li><a class="dropdown-item" href="/laporanproduk">Laporan Produk Terlaris</a></li>
                     </ul>
                   </li>
             </li>
@@ -52,22 +61,11 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Nama
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-              </li>
-              <li class="nav-item">
-                <button class="btn btn-outline-warning me-2" type="button">Log Out
-                </button>
+                <a class="nav-link disabled" style="color: whitesmoke">Nama</a>
             </li>
+                <li class="nav-item">
+                    <button class="btn btn-outline-warning me-2" type="button">Log Out</button>
+                </li>
             </ul>
           </div>
         </div>
