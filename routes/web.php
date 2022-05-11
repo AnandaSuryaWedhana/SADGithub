@@ -36,3 +36,8 @@ Route::get('/header', function () {
         "title" => "header"
     ]);
 });
+Route::get('/updatedeletepembeli',function(){
+return view('updatedeletepembeli',[
+"title" => "updatedeletepembeli"
+    ]);
+});
