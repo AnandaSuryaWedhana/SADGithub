@@ -56,3 +56,8 @@ Route::get('/laporantransaksi',function(){
         "title" => "laporantransaksi"
     ]);
 });
+Route::get('/laporanproduklaris',function(){
+    return view('laporanproduklaris',[
+        "title" => "laporanproduklaris"
+    ]);
+});
