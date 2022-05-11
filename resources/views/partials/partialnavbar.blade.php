@@ -39,7 +39,7 @@
               <li class="nav-item">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{ ($title === "Entry operator") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Pembeli
+                      Operator
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entryoperator">Entry Operator</a></li>
