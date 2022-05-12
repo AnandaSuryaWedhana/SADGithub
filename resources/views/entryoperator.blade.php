@@ -16,7 +16,7 @@
       <form action="" method="post">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Username</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" />
+          <input type="text" class="form-control" id="exampleFormControlInput1"/>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Kata Sandi</label>
