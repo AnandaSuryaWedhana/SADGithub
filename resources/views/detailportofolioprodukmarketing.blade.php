@@ -16,6 +16,9 @@
 </head>
 <body>
     @include('partials.partialnavbarmarketing')
+    <div class="container mt-4 mb-4">
+        <h1 class="text-center">Detail Produk</h1>
+    </div>
     <div class="container mt-4" style="display: flex">
             <div class="container1">
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
