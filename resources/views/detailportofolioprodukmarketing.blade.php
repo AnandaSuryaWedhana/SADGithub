@@ -8,5 +8,6 @@
 </head>
 <body>
     @include('partials.partialnavbarmarketing')
+
 </body>
 </html>
