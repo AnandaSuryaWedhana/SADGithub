@@ -37,8 +37,8 @@
                     Kategori & Produk
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="/entryproduk">Entry Kategori</a></li>
-                      <li><a class="dropdown-item" href="/entrykategori">Entry Produk</a></li>
+                      <li><a class="dropdown-item" href="/entrykategori">Entry Kategori</a></li>
+                      <li><a class="dropdown-item" href="/entryproduk">Entry Produk</a></li>
                       <li><a class="dropdown-item" href="/updatedeletekategori">Update & Delete kategori</a></li>
                       <li><a class="dropdown-item" href="/updatedeleteproduk">Update & Delete produk</a></li>
                   </ul>
@@ -57,16 +57,11 @@
             </li>
             <li class="nav-item">
                 <li class="nav-item dropdown">
-<<<<<<< HEAD
-                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduk" or $title === "laporanpembeli") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-=======
-                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduklaris") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
->>>>>>> d16ad203e7f53bb6fd5afa22e5d5ae5cc7e30ecd
+                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduk") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Laporan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/laporantransaksi">Laporan Transkasi</a></li>
-<<<<<<< HEAD
                       <li><a class="dropdown-item" href="/laporanproduk">Laporan Produk Terlaris</a></li>
                       <li><a class="dropdown-item" href="/laporanproduk">Laporan Pembeli</a></li>
                     </ul>
@@ -80,9 +75,6 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entrytransaksi">Entry transaksi</a></li>
                       <li><a class="dropdown-item" href="/updatedeletetransaksi">Update delete transaksi</a></li>
-=======
-                      <li><a class="dropdown-item" href="/laporanproduklaris">Laporan Produk Terlaris</a></li>
->>>>>>> d16ad203e7f53bb6fd5afa22e5d5ae5cc7e30ecd
                     </ul>
                   </li>
             </li>
