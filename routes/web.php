@@ -86,3 +86,13 @@ Route::get('/entryproduk',function(){
         "title" => "entryproduk"
     ]);
 });
+Route::get('/entrytransaksi',function(){
+    return view('entrytransaksi',[
+        "title" => "entrytransaksi"
+    ]);
+});
+Route::get('/entrykategori',function(){
+    return view('entrykategori',[
+        "title" => "entrykategori"
+    ]);
+});
