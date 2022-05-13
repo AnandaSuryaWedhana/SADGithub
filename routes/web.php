@@ -101,4 +101,9 @@ Route::get('/updatedeletetransaksi',function(){
         "title" => "updatedeletetransaksi"
     ]);
 });
+Route::get('/updatedeletekategori',function(){
+    return view('updatedeletekategori',[
+        "title" => "updatedeletekategori"
+    ]);
+});
 
