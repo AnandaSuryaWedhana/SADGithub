@@ -106,4 +106,23 @@ Route::get('/updatedeletekategori',function(){
         "title" => "updatedeletekategori"
     ]);
 });
-
+Route::get('/updatekategori',function(){
+    return view('updatekategori',[
+        "title" => "updatekategori"
+    ]);
+});
+Route::get('/updateproduk',function(){
+    return view('updateproduk',[
+        "title" => "updateproduk"
+    ]);
+});
+Route::get('/updatetransaksi',function(){
+    return view('updatetransaksi',[
+        "title" => "updatetransaksi"
+    ]);
+});
+Route::get('/login',function(){
+    return view('login',[
+        "title" => "login"
+    ]);
+});
