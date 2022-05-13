@@ -71,3 +71,18 @@ Route::get('/detailportofolioprodukmarketing',function(){
         "title" => "detailportofolioprodukmarketing"
     ]);
 });
+Route::get('/updatedeletekategori',function(){
+    return view('updatedeletekategori',[
+        "title" => "updatedeletekategori"
+    ]);
+});
+Route::get('/updatedeleteproduk',function(){
+    return view('updatedeleteproduk',[
+        "title" => "updatedeleteproduk"
+    ]);
+});
+Route::get('/entryproduk',function(){
+    return view('entryproduk',[
+        "title" => "entryproduk"
+    ]);
+});
