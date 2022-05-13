@@ -33,7 +33,7 @@
               </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle {{ ($title === "entryproduk" or $title === "updatedeletekategori" or $title === "updatedeleteproduk") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link dropdown-toggle {{ ($title === "entryproduk" or $title === "updatedeletekategori" or $title === "updatedeleteproduk" or $title === "entrykategori") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Kategori & Produk
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -62,10 +62,22 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/laporantransaksi">Laporan Transkasi</a></li>
-                      <li><a class="dropdown-item" href="/laporanproduk">Laporan Produk Terlaris</a></li>
+                      <li><a class="dropdown-item" href="/laporanproduklaris">Laporan Produk Terlaris</a></li>
                     </ul>
                   </li>
             </li>
+            <li class="nav-item">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle {{ ($title === "entrytransaksi" or $title === "updatedeletetransaksi") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Transaksi
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <li><a class="dropdown-item" href="/entrytransaksi">Entry Transkasi</a></li>
+                      <li><a class="dropdown-item" href="/updatedeletetransaksi">Update & Delete Transaksi</a></li>
+                    </ul>
+                  </li>
+            </li>
+        </ul>
           </div>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
