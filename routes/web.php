@@ -56,3 +56,18 @@ Route::get('/laporantransaksi',function(){
         "title" => "laporantransaksi"
     ]);
 });
+Route::get('/laporanproduklaris',function(){
+    return view('laporanproduklaris',[
+        "title" => "laporanproduklaris"
+    ]);
+});
+Route::get('/portofolioprodukmarketing',function(){
+    return view('portofolioprodukmarketing',[
+        "title" => "portofolioprodukmarketing"
+    ]);
+});
+Route::get('/detailportofolioprodukmarketing',function(){
+    return view('detailportofolioprodukmarketing',[
+        "title" => "detailportofolioprodukmarketing"
+    ]);
+});
