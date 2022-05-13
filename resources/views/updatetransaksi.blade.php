@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/entryproduk.css">
+    <link rel="stylesheet" href="css/entrytransaksi.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -23,7 +23,7 @@
             <title>Document</title>
         </head>
         <body>
-            
+
             <div class="container">
                 <div class="title">Update Transaksi</div>
                 <form action="#">
@@ -73,7 +73,7 @@
                                  <select>
                                     <option>Sudah Lunas</option>
                                     <option>Belum Lunas</option>
-                                    
+
                                  </select>
                                 <!-- <label for="">
                                     <span class="dot one"></span>
@@ -85,7 +85,7 @@
                                 </label>  -->
                             </div>
                         </div>
-                    
+
                     </div>
                     <div class="button">
                         <input type="submit" value="Submit">
@@ -94,4 +94,3 @@
             </div>
         </body>
         </html>
-        
