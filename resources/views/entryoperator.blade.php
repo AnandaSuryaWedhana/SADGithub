@@ -13,21 +13,24 @@
     <div class="container bg-light" style="padding:20px; border-radius:10px; border:0.1px solid rgb(201, 201, 201); margin-top:10px">
         <h1 class="text-center">Menambah Operator</h1>
 
-      <form action="" method="post">
+      <form action="/entryoperator" method="post">
+          @csrf
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Username</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1"/>
+          <input type="text" name="Username" class="form-control" id="exampleFormControlInput1"  value="{{ old('Username') }}"/>
+          <span style="color: red">@error('Username'){{ $message }}@enderror</span>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Kata Sandi</label>
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+          <input type="password" name="Password" class="form-control" id="floatingPassword" placeholder="Password"  value="{{ old('Password') }}"/>
+          <span style="color: red">@error('Password'){{ $message }}@enderror</span>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Role</label>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1">Marketing</option>
-            <option value="2">Accountant</option>
-            <option value="3">Receptionist</option>
+          <select class="form-select" name="role" aria-label="Default select example">
+            <option value="Marketing">Marketing</option>
+            <option value="Accountant">Accountant</option>
+            <option value="Receptionist">Receptionist</option>
           </select>
         </div>
         <div class="col-12 text-center">
