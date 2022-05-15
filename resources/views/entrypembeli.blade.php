@@ -25,12 +25,12 @@
       <div class="seperatediv" style="margin-top: 20px">
         <div class="col-md-6" style="width: 70%">
           <label for="inputAddress" class="form-label">Nomor Telpon :</label>
-          <input type="tel" name="nomortlp" class="form-control" pattern="[0-9]{13}" required />
+          <input type="tel" name="nomortlp" class="form-control" pattern="[0-9]{12}" required />
         </div>
         <div class="space" style="width: 5%"></div>
         <div class="mb-3" style="width: 25%">
           <label for="exampleFormControlInput1" class="form-label">Jumlah Transaksi :</label>
-          <input type="number" name="jumlah" value=8 class="form-control" id="exampleFormControlInput1" required/>
+          <input type="number" name="jumlah" class="form-control" id="exampleFormControlInput1" required/>
         </div>
       </div>
       <div class="col-12 text-center">
