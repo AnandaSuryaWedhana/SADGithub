@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
 use Illuminate\Support\Facades\Route;
 
@@ -21,11 +22,8 @@ Route::get('/', function () {
 });
 Route::get('entrypembeli',[entrypembeli::class,'index']);
 Route::post('/entrypembeli',[entrypembeli::class,'store']);
-Route::get('/entryoperator', function () {
-    return view('entryoperator',[
-        "title" => "Entry operator"
-    ]);
-});
+Route::get('/entryoperator',[entryoperator::class,'index']);
+Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/updatepembeli', function () {
     return view('updatepembeli',[
         "title" => "updatepembeli"
