@@ -37,8 +37,12 @@ class entrypembeli extends Controller
      */
     public function store(Request $request)
     {
-        $result = $request -> all();
-        dd($result);
+        //$result = $request -> all();
+        //dd($result);
+        //$count = \DB::table('table_name')->count();
+        //$data = "ananda";
+        //$subdata = substr($data,0,1);
+        //dd($subdata);
     }
 
     /**
