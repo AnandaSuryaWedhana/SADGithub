@@ -46,7 +46,8 @@ class entryoperator extends Controller
         // $count = $count + 1;
         // dd($count);
         $users = DB::select('select ID_USER from USER');
-        dd($users[0]);
+        $subdata = substr($users[0],0,1);
+        dd($subdata);
     }
 
     /**
