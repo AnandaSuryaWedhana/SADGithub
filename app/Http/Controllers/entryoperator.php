@@ -38,16 +38,35 @@ class entryoperator extends Controller
      */
     public function store(Request $request)
     {
+        // validate
         $request->validate([
             'Username' => 'required',
             'Password' => 'required|min:8'
         ]);
-        // $count = DB::table('USER')->count();
-        // $count = $count + 1;
-        // dd($count);
-        $users = DB::select('select ID_USER from USER');
-        $subdata = substr($users[0],0,1);
-        dd($subdata);
+        // generate id
+        $username = $request->input('Username');
+        $substrdata = substr($username,0,1);
+        $substrdata = strtoupper($substrdata);
+        $count = DB::table('USER')
+        ->where('ID_USER', 'like', '%U'. $substrdata .'%')
+        ->latest('ID_USER')
+        ->count();
+        // if 0
+        if($count == 0){
+            $idoperator = "U". $substrdata . "001";
+            return $idoperator;
+        }
+        if($count > 0){
+            $lastid = DB::table('USER')
+            ->where('ID_USER', 'like', '%U'. $substrdata .'%')
+            ->latest('ID_USER')
+            ->first('ID_USER');
+            $arrayvalue = get_object_vars($lastid);
+        }
+        //$array = get_object_vars($last);
+        //$subdata = substr($array['ID_USER'], -1);
+        // $int = (int)$subdata;
+        // dd($int+1);
     }
 
     /**
