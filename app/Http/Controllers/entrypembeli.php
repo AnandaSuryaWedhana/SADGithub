@@ -39,53 +39,58 @@ class entrypembeli extends Controller
     {
         // validate
         $request->validate([
-            'nama' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:3',
+            'Nama' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:3',
+            'Alamat' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5',
+            'NomorTelepon' => 'required|regex:/(0)[0-9]{11}/',
+            'JumlahTransaksi' => 'required|numeric|gt:0'
         ]);
-        // $username = $request->input('Username');
-        // $availableuser = DB::table('USER')
-        // ->where('USERNAME', '=', $username)
-        // ->count();
-        // // check data availability
-        // if($availableuser == 0){
-        //     // generate id
-        //     $substrdata = substr($username,0,1);
-        //     $substrdata = strtoupper($substrdata);
-        //     $count = DB::table('USER')
-        //     ->where('ID_USER', 'like', '%U'. $substrdata .'%')
-        //     ->latest('ID_USER')
-        //     ->count();
-        //     if($count == 0){
-        //         $idoperator = "U". $substrdata . "001";
-        //     }
-        //     if($count > 0){
-        //         $lastid = DB::table('USER')
-        //         ->where('ID_USER', 'like', '%U'. $substrdata .'%')
-        //         ->latest('ID_USER')
-        //         ->first('ID_USER');
-        //         $arrayvalue = get_object_vars($lastid);
-        //         $substrid = substr($arrayvalue['ID_USER'], -1);
-        //         $int = (int)$substrid+1;
-        //         $intlen = strlen((string)$int);
-        //         if($intlen > 0 and $intlen <9){
-        //             $idoperator = "U". $substrdata . "00". (string)$int;
-        //         }
-        //         if($intlen > 9 and $intlen <100){
-        //             $idoperator = "U". $substrdata . "0". (string)$int;
-        //         }
-        //     }
-        //     // insert data
-        //     $query = DB::table('USER')->insert([
-        //         'ID_USER' => $idoperator,
-        //         'USERNAME' => $request->input('Username'),
-        //         'PASSWORD' => $request->input('Password'),
-        //         'ROLE' => $request->input('role'),
-        //         'DEL_USER' => 0
-        //     ]);
-        //     return back()->with('success','Operator Berhasil Dimasukkan');
-        // }
-        // else{
-        //     return back()->with('fail','Username Telah Digunakan');
-        // }
+        $customername = $request->input('Nama');
+        $telephonenumber = $request->input('NomorTelepon');
+        $availableuser = DB::table('PEMBELI')
+        ->where('TELPHONE_PEMBELI', '=', $telephonenumber)
+        ->count();
+        // check data availability
+        if($availableuser == 0){
+            // generate id
+             $substrdata = substr($customername,0,1);
+             $substrdata = strtoupper($substrdata);
+             $count = DB::table('PEMBELI')
+             ->where('ID_PEMBELI', 'like', '%C'. $substrdata .'%')
+             ->latest('ID_PEMBELI')
+             ->count();
+             if($count == 0){
+                 $idcustomer = "C". $substrdata . "0001";
+             }
+             if($count > 0){
+                 $lastid = DB::table('PEMBELI')
+                 ->where('ID_PEMBELI', 'like', '%C'. $substrdata .'%')
+                 ->latest('ID_PEMBELI')
+                 ->first('ID_PEMBELI');
+                 $arrayvalue = get_object_vars($lastid);
+                 $substrid = substr($arrayvalue['ID_PEMBELI'], -1);
+                 $int = (int)$substrid+1;
+                 $intlen = strlen((string)$int);
+                 if($intlen > 0 and $intlen <9){
+                     $idcustomer = "C". $substrdata . "000". (string)$int;
+                 }
+                 if($intlen > 9 and $intlen <100){
+                     $idcustomer = "C". $substrdata . "00". (string)$int;
+                 }
+             }
+             // insert data
+              $query = DB::table('PEMBELI')->insert([
+                  'ID_PEMBELI' => $idcustomer,
+                  'NAMA_PEMBELI' => $request->input('Nama'),
+                  'ALAMAT_PEMBELI' => $request->input('Alamat'),
+                  'TELPHONE_PEMBELI' => $request->input('NomorTelepon'),
+                  'JUMLAHPRODUK_TRANSAKSI' => $request->input('JumlahTransaksi'),
+                  'DEL' => 0
+              ]);
+            return back()->with('success','Pembeli Berhasil Dimasukkan');
+        }
+         else{
+             return back()->with('fail','Pembeli Sudah Tersedia');
+         }
     }
 
     /**
