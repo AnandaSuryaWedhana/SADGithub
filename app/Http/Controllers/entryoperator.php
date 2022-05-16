@@ -41,7 +41,7 @@ class entryoperator extends Controller
         // validate
         $request->validate([
             'Username' => 'required',
-            'Password' => 'required|min:8'
+            'Password' => 'required|min:3'
         ]);
         $username = $request->input('Username');
         $availableuser = DB::table('USER')
@@ -75,10 +75,17 @@ class entryoperator extends Controller
                     $idoperator = "U". $substrdata . "0". (string)$int;
                 }
             }
-            return $idoperator;
+            $query = DB::table('USER')->insert([
+                'ID_USER' => $idoperator,
+                'USERNAME' => $request->input('Username'),
+                'PASSWORD' => $request->input('Password'),
+                'ROLE' => $request->input('role'),
+                'DEL_USER' => 0
+            ]);
+            return back()->with('success','Operator Berhasil Dimasukkan');
         }
         else{
-            return "data terisi";
+            return back()->with('fail','Username Telah Digunakan');
         }
     }
 
