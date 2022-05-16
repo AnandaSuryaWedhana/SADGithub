@@ -16,21 +16,26 @@
         @csrf
         <div class="col-12" style="padding-top: 10px">
             <label for="inputName" class="form-label">Nama : </label>
-            <input type="text" name="nama" class="form-control" id="inputName" required/>
+            <input type="text" name="nama" class="form-control" id="inputName"/>
+            <span style="color: red">@error('nama'){{ $message }}@enderror</span>
         </div>
       <div class="col-12" style="padding-top: 10px">
         <label for="inputAddress" class="form-label">Alamat : </label>
-        <input type="text" name="alamat" class="form-control" id="inputAddress" placeholder="1234 Main St" required/>
+        <input type="text" name="alamat" class="form-control" id="inputAddress" placeholder="1234 Main St"/>
+        <span style="color: red">@error('alamat'){{ $message }}@enderror</span>
       </div>
       <div class="seperatediv" style="margin-top: 20px">
         <div class="col-md-6" style="width: 70%">
           <label for="inputAddress" class="form-label">Nomor Telpon :</label>
-          <input type="tel" name="nomortlp" class="form-control" pattern="[0-9]{12}" required />
+          {{-- <input type="tel" name="nomortlp" class="form-control" pattern="[0-9]{12}"/> --}}
+          <input type="tel" name="nomortlp" class="form-control"/>
+          <span style="color: red">@error('nomortlp'){{ $message }}@enderror</span>
         </div>
         <div class="space" style="width: 5%"></div>
         <div class="mb-3" style="width: 25%">
           <label for="exampleFormControlInput1" class="form-label">Jumlah Transaksi :</label>
-          <input type="number" name="jumlah" class="form-control" id="exampleFormControlInput1" required/>
+          <input type="number" name="jumlah" class="form-control" id="exampleFormControlInput1"/>
+          <span style="color: red">@error('jumlah'){{ $message }}@enderror</span>
         </div>
       </div>
       <div class="col-12 text-center">
