@@ -75,6 +75,7 @@ class entryoperator extends Controller
                     $idoperator = "U". $substrdata . "0". (string)$int;
                 }
             }
+            // insert data
             $query = DB::table('USER')->insert([
                 'ID_USER' => $idoperator,
                 'USERNAME' => $request->input('Username'),
