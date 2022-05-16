@@ -43,30 +43,43 @@ class entryoperator extends Controller
             'Username' => 'required',
             'Password' => 'required|min:8'
         ]);
-        // generate id
         $username = $request->input('Username');
-        $substrdata = substr($username,0,1);
-        $substrdata = strtoupper($substrdata);
-        $count = DB::table('USER')
-        ->where('ID_USER', 'like', '%U'. $substrdata .'%')
-        ->latest('ID_USER')
+        $availableuser = DB::table('USER')
+        ->where('USERNAME', '=', $username)
         ->count();
-        // if 0
-        if($count == 0){
-            $idoperator = "U". $substrdata . "001";
-            return $idoperator;
-        }
-        if($count > 0){
-            $lastid = DB::table('USER')
+        // check data availability
+        if($availableuser == 0){
+            // generate id
+            $substrdata = substr($username,0,1);
+            $substrdata = strtoupper($substrdata);
+            $count = DB::table('USER')
             ->where('ID_USER', 'like', '%U'. $substrdata .'%')
             ->latest('ID_USER')
-            ->first('ID_USER');
-            $arrayvalue = get_object_vars($lastid);
+            ->count();
+            if($count == 0){
+                $idoperator = "U". $substrdata . "001";
+            }
+            if($count > 0){
+                $lastid = DB::table('USER')
+                ->where('ID_USER', 'like', '%U'. $substrdata .'%')
+                ->latest('ID_USER')
+                ->first('ID_USER');
+                $arrayvalue = get_object_vars($lastid);
+                $substrid = substr($arrayvalue['ID_USER'], -1);
+                $int = (int)$substrid+1;
+                $intlen = strlen((string)$int);
+                if($intlen > 0 and $intlen <9){
+                    $idoperator = "U". $substrdata . "00". (string)$int;
+                }
+                if($intlen > 9 and $intlen <100){
+                    $idoperator = "U". $substrdata . "0". (string)$int;
+                }
+            }
+            return $idoperator;
         }
-        //$array = get_object_vars($last);
-        //$subdata = substr($array['ID_USER'], -1);
-        // $int = (int)$subdata;
-        // dd($int+1);
+        else{
+            return "data terisi";
+        }
     }
 
     /**
