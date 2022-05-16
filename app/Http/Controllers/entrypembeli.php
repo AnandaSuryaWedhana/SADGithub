@@ -37,12 +37,55 @@ class entrypembeli extends Controller
      */
     public function store(Request $request)
     {
-        //$result = $request -> all();
-        //dd($result);
-        //$count = \DB::table('table_name')->count();
-        //$data = "ananda";
-        //$subdata = substr($data,0,1);
-        //dd($subdata);
+        // validate
+        $request->validate([
+            'nama' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:3',
+        ]);
+        // $username = $request->input('Username');
+        // $availableuser = DB::table('USER')
+        // ->where('USERNAME', '=', $username)
+        // ->count();
+        // // check data availability
+        // if($availableuser == 0){
+        //     // generate id
+        //     $substrdata = substr($username,0,1);
+        //     $substrdata = strtoupper($substrdata);
+        //     $count = DB::table('USER')
+        //     ->where('ID_USER', 'like', '%U'. $substrdata .'%')
+        //     ->latest('ID_USER')
+        //     ->count();
+        //     if($count == 0){
+        //         $idoperator = "U". $substrdata . "001";
+        //     }
+        //     if($count > 0){
+        //         $lastid = DB::table('USER')
+        //         ->where('ID_USER', 'like', '%U'. $substrdata .'%')
+        //         ->latest('ID_USER')
+        //         ->first('ID_USER');
+        //         $arrayvalue = get_object_vars($lastid);
+        //         $substrid = substr($arrayvalue['ID_USER'], -1);
+        //         $int = (int)$substrid+1;
+        //         $intlen = strlen((string)$int);
+        //         if($intlen > 0 and $intlen <9){
+        //             $idoperator = "U". $substrdata . "00". (string)$int;
+        //         }
+        //         if($intlen > 9 and $intlen <100){
+        //             $idoperator = "U". $substrdata . "0". (string)$int;
+        //         }
+        //     }
+        //     // insert data
+        //     $query = DB::table('USER')->insert([
+        //         'ID_USER' => $idoperator,
+        //         'USERNAME' => $request->input('Username'),
+        //         'PASSWORD' => $request->input('Password'),
+        //         'ROLE' => $request->input('role'),
+        //         'DEL_USER' => 0
+        //     ]);
+        //     return back()->with('success','Operator Berhasil Dimasukkan');
+        // }
+        // else{
+        //     return back()->with('fail','Username Telah Digunakan');
+        // }
     }
 
     /**
