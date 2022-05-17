@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
+use App\Http\Controllers\updatedeleteoperator;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,16 +40,8 @@ return view('updatedeletepembeli',[
 "title" => "updatedeletepembeli"
     ]);
 });
-Route::get('/updatedeleteoperator',function(){
-    return view('updatedeleteoperator',[
-        "title" => "updatedeleteoperator"
-    ]);
-});
-Route::get('/updateoperator',function(){
-    return view('updateoperator',[
-        "title" => "updateoperator"
-    ]);
-});
+Route::get('/updatedeleteoperator',[updatedeleteoperator::class,'index']);
+Route::get('/updateoperator/{id}',[updatedeleteoperator::class,'show']);
 Route::get('/laporantransaksi',function(){
     return view('laporantransaksi',[
         "title" => "laporantransaksi"
