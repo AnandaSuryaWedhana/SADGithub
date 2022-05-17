@@ -3,6 +3,7 @@
 use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
 use App\Http\Controllers\updatedeleteoperator;
+use App\Http\Controllers\updatedeletepembeli;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,21 +26,13 @@ Route::get('entrypembeli',[entrypembeli::class,'index']);
 Route::post('/entrypembeli',[entrypembeli::class,'store']);
 Route::get('/entryoperator',[entryoperator::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
-Route::get('/updatepembeli', function () {
-    return view('updatepembeli',[
-        "title" => "updatepembeli"
-    ]);
-});
+Route::get('/updatepembeli/{id}',[updatedeletepembeli::class,'show']);
 Route::get('/header', function () {
     return view('header',[
         "title" => "header"
     ]);
 });
-Route::get('/updatedeletepembeli',function(){
-return view('updatedeletepembeli',[
-"title" => "updatedeletepembeli"
-    ]);
-});
+Route::get('/updatedeletepembeli',[updatedeletepembeli::class,'index']);
 Route::get('/updatedeleteoperator',[updatedeleteoperator::class,'index']);
 Route::get('/updateoperator/{id}',[updatedeleteoperator::class,'show']);
 Route::get('/laporantransaksi',function(){
