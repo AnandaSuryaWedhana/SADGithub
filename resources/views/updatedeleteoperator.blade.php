@@ -21,9 +21,9 @@
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>Number</th>
+              <th>ID Operator</th>
               <th class="th-lg">Username</th>
-              <th class="th-lg">Password</th>
+              <th class="th-lg">Role</th>
               <th class="th-lg">Action</th>
             </tr>
           </thead>
@@ -31,33 +31,17 @@
 
           <!--Table body-->
           <tbody>
+            @foreach ($list as $item)
             <tr class="align-middle text-center">
-              <th scope="row">1</th>
-              <td>Lorem ipsum dolor</td>
-              <td >Lor</td>
-              <td>
-                <a href="/updateoperator"><button type="button" class="btn btn-info">Edit</button></a>
-                <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
-              </td>
-            </tr>
-            <tr class="align-middle text-center">
-              <th scope="row">1</th>
-              <td>Lorem ipsum dolor</td>
-              <td >Lor</td>
-              <td>
-                <button type="button" class="btn btn-info">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
-            <tr class="align-middle text-center">
-              <th scope="row">1</th>
-              <td>Lorem ipsum dolor</td>
-              <td >Lor</td>
-              <td>
-                <button type="button" class="btn btn-info">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
-              </td>
-            </tr>
+                <th scope="row">{{ $item->ID_USER }}</th>
+                <td>{{ $item->USERNAME }}</td>
+                <td >{{ $item->ROLE }}</td>
+                <td>
+                  <a href="/updateoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
