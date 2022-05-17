@@ -16,18 +16,20 @@
       <form action="" method="post">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Username</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" />
+          <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ $data[0]->USERNAME }}"/>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Kata Sandi</label>
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" value="{{ $data[0]->PASSWORD }}"/>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Role</label>
           <select class="form-select" aria-label="Default select example">
-            <option value="1">Marketing</option>
-            <option value="2">Accountant</option>
-            <option value="3">Receptionist</option>
+            <option value="{{ $data[0]->ROLE }}" disabled selected>{{ $data[0]->ROLE }}</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Pemilik">Accountant</option>
+            <option value="Admin">Admin</option>
+            <option></option>
           </select>
         </div>
         <div class="col-12 text-center">
