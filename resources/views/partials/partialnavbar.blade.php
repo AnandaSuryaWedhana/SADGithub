@@ -51,7 +51,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entryoperator">Entry Operator</a></li>
-                      <li><a class="dropdown-item" href="/updatedeleteoperator">Update Pembeli & Delete Operator</a></li>
+                      <li><a class="dropdown-item" href="/updatedeleteoperator">Update  & Delete Operator</a></li>
                     </ul>
                   </li>
             </li>
