@@ -12,6 +12,12 @@
   <body>
       @include('partials.partialnavbar')
     <div class="container mt-5">
+        @if (Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <h1 class="text-center">Update & Delete Operator</h1>
       <div class="table-responsive mt-4">
 
@@ -38,7 +44,7 @@
                 <td >{{ $item->ROLE }}</td>
                 <td>
                   <a href="/updateoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/deleteoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
             @endforeach
