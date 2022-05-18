@@ -60,7 +60,20 @@ class updatedeletepembeli extends Controller
         DB::delete('delete from PEMBELI where ID_PEMBELI = ?', [$id]);
         return redirect('updatedeletepembeli')->with('success','Data Terhapus');
     }
-
+    public function updatepembeli(Request $request,$id){
+        $request->validate([
+            'Nama' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:3',
+            'Alamat' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5',
+            'NomorTelepon' => 'required|regex:/(0)[0-9]{11}/',
+            'JumlahTransaksi' => 'required|numeric|gt:0'
+        ]);
+        $pembeli_nama = $request->input('Nama');
+        $pembeli_alamat = $request->input('Alamat');
+        $pembeli_nomortelepon = $request->input('NomorTelepon');
+        $pembeli_transaksi = $request->input('JumlahTransaksi');
+        DB::update('update PEMBELI set NAMA_PEMBELI = ?, ALAMAT_PEMBELI = ?,  TELPHONE_PEMBELI = ?, JUMLAHPRODUK_TRANSAKSI = ? where ID_PEMBELI = ?', [$pembeli_nama,$pembeli_alamat,$pembeli_nomortelepon,$pembeli_transaksi,$id]);
+        return redirect('updatedeletepembeli')->with('successupdate','Data Berhasil Diupdate!');
+    }
     /**
      * Show the form for editing the specified resource.
      *
