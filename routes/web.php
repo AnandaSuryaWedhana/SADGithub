@@ -28,6 +28,7 @@ Route::get('/entryoperator',[entryoperator::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/editpembeli/{id}',[updatedeletepembeli::class,'show']);
 Route::get('/deletepembeli/{id}',[updatedeletepembeli::class,'deletepembeli']);
+Route::post('/updatepembeli/{id}',[updatedeletepembeli::class,'updatepembeli']);
 Route::get('/header', function () {
     return view('header',[
         "title" => "header"
