@@ -55,6 +55,11 @@ class updatedeletepembeli extends Controller
             'data'=>$customer
         ]);
     }
+    public function deletepembeli($id)
+    {
+        DB::delete('delete from PEMBELI where ID_PEMBELI = ?', [$id]);
+        return redirect('updatedeletepembeli')->with('success','Data Terhapus');
+    }
 
     /**
      * Show the form for editing the specified resource.
