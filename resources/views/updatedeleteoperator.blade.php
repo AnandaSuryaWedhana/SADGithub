@@ -18,6 +18,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        @if (Session::get('successupdate'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('successupdate') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <h1 class="text-center">Update & Delete Operator</h1>
       <div class="table-responsive mt-4">
 
@@ -43,7 +49,7 @@
                 <td>{{ $item->USERNAME }}</td>
                 <td >{{ $item->ROLE }}</td>
                 <td>
-                  <a href="/updateoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <a href="/editoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-info">Edit</button></a>
                   <a href="/deleteoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
