@@ -57,7 +57,10 @@ class updatedeleteoperator extends Controller
             'data'=>$user
         ]);
     }
-
+    public function deleteoperator($id){
+        DB::delete('delete from USER where ID_USER = ?', [$id]);
+        return redirect('updatedeleteoperator')->with('success','Data Terhapus');
+    }
     /**
      * Show the form for editing the specified resource.
      *
