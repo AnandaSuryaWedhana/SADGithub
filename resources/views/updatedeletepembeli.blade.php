@@ -12,6 +12,12 @@
   <body>
       @include('partials.partialnavbar')
     <div class="container mt-5">
+        @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
         <h1 class="text-center">Update & Delete Pembeli</h1>
       <div class="table-responsive mt-4">
 
@@ -42,7 +48,7 @@
                 <td >{{ $data->JUMLAHPRODUK_TRANSAKSI }}</td>
                 <td>
                   <a href="/updatepembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="#"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/deletepembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
               @endforeach
