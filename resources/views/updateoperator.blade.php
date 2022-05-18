@@ -13,14 +13,17 @@
     <div class="container bg-light" style="padding:20px; border-radius:10px; border:0.1px solid rgb(201, 201, 201); margin-top:10px">
         <h1 class="text-center">Ubah Operator</h1>
 
-      <form action="" method="post">
+      <form action="/updateoperator/{{ $data[0]->ID_USER }}" method="post">
+        @csrf
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Username</label>
-          <input type="text" class="form-control" id="exampleFormControlInput1" value="{{ $data[0]->USERNAME }}"/>
+          <input type="text" name="Username" class="form-control" id="exampleFormControlInput1" value="{{ $data[0]->USERNAME }}"/>
+          <span style="color: red">@error('Username'){{ $message }}@enderror</span>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Kata Sandi</label>
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" value="{{ $data[0]->PASSWORD }}"/>
+          <input type="password" name="Password" class="form-control" id="floatingPassword" placeholder="Password" value="{{ $data[0]->PASSWORD }}"/>
+          <span style="color: red">@error('Password'){{ $message }}@enderror</span>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Role</label>
