@@ -26,7 +26,7 @@ Route::get('entrypembeli',[entrypembeli::class,'index']);
 Route::post('/entrypembeli',[entrypembeli::class,'store']);
 Route::get('/entryoperator',[entryoperator::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
-Route::get('/updatepembeli/{id}',[updatedeletepembeli::class,'show']);
+Route::get('/editpembeli/{id}',[updatedeletepembeli::class,'show']);
 Route::get('/deletepembeli/{id}',[updatedeletepembeli::class,'deletepembeli']);
 Route::get('/header', function () {
     return view('header',[
@@ -35,8 +35,9 @@ Route::get('/header', function () {
 });
 Route::get('/updatedeletepembeli',[updatedeletepembeli::class,'index']);
 Route::get('/updatedeleteoperator',[updatedeleteoperator::class,'index']);
-Route::get('/updateoperator/{id}',[updatedeleteoperator::class,'show']);
+Route::get('/editoperator/{id}',[updatedeleteoperator::class,'show']);
 Route::get('/deleteoperator/{id}',[updatedeleteoperator::class,'deleteoperator']);
+Route::post('/updateoperator/{id}',[updatedeleteoperator::class,'updateoperator']);
 Route::get('/laporantransaksi',function(){
     return view('laporantransaksi',[
         "title" => "laporantransaksi"
