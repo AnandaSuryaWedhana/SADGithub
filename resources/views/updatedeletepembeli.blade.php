@@ -47,7 +47,7 @@
                 <td >{{ $data->TELPHONE_PEMBELI }}</td>
                 <td >{{ $data->JUMLAHPRODUK_TRANSAKSI }}</td>
                 <td>
-                  <a href="/updatepembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <a href="/editpembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">Edit</button></a>
                   <a href="/deletepembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
