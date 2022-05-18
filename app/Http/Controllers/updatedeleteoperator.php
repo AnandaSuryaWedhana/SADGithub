@@ -61,6 +61,16 @@ class updatedeleteoperator extends Controller
         DB::delete('delete from USER where ID_USER = ?', [$id]);
         return redirect('updatedeleteoperator')->with('success','Data Terhapus');
     }
+    public function updateoperator(Request $request,$id){
+        $request->validate([
+            'Username' => 'required',
+            'Password' => 'required|min:3'
+        ]);
+        $user_username = $request->input('Username');
+        $user_password = $request->input('Password');
+        DB::update('update USER set USERNAME = ?, PASSWORD = ? where ID_USER = ?', [$user_username,$user_password,$id]);
+        return redirect('updatedeleteoperator')->with('successupdate','Data Berhasil Diupdate!');
+    }
     /**
      * Show the form for editing the specified resource.
      *
