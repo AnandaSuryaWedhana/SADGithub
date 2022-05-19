@@ -12,7 +12,7 @@
   </head>
   <body>
       @include('partials.partialnavbar')
-    <div class="container mt-5">
+      <div class="container-fluid mt-5" style="width: 100%">
         <h1 class="text-center">Update & Delete Produk</h1>
       <div class="table-responsive mt-4">
 
