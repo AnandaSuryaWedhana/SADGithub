@@ -57,7 +57,7 @@
             </li>
             <li class="nav-item">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduk") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduklaris") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Laporan
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
