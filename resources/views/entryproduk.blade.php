@@ -10,7 +10,8 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+    @include('partials.partialnavbar')
+    <div class="container mt-4">
         <div class="title">Entry Produk</div>
         <form action="#">
             <div class="produk">
