@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\modelupdatedeletepembeli;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -14,7 +15,9 @@ class updatedeletepembeli extends Controller
      */
     public function index()
     {
-        $pembeli = array('list'=>DB::table('PEMBELI')->get());
+        $pembeli = [
+            'list' => modelupdatedeletepembeli::paginate(10)
+        ];
         return view('updatedeletepembeli',[
             'title'=>'updatedeletepembeli'
         ],$pembeli);
