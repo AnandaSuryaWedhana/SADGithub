@@ -32,46 +32,6 @@
               <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
             </div>
           </div>
-          <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="photo\nakasphoto.jpg" class="card-img-top" alt="Nakas">
-            <div class="card-body">
-              <h5 class="card-title">Nakas 75 X 50 X 50 CM </h5>
-              <p class="card-text">Deskripsi Nakas</p>
-              <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
-            </div>
-          </div>
-          <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="photo\nakasphoto.jpg" class="card-img-top" alt="Nakas">
-            <div class="card-body">
-              <h5 class="card-title">Nakas 75 X 50 X 50 CM </h5>
-              <p class="card-text">Deskripsi Nakas</p>
-              <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
-            </div>
-          </div>
-          <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="photo\nakasphoto.jpg" class="card-img-top" alt="Nakas">
-            <div class="card-body">
-              <h5 class="card-title">Nakas 75 X 50 X 50 CM </h5>
-              <p class="card-text">Deskripsi Nakas</p>
-              <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
-            </div>
-          </div>
-          <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="photo\nakasphoto.jpg" class="card-img-top" alt="Nakas">
-            <div class="card-body">
-              <h5 class="card-title">Nakas 75 X 50 X 50 CM </h5>
-              <p class="card-text">Deskripsi Nakas</p>
-              <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
-            </div>
-          </div>
-          <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="photo\nakasphoto.jpg" class="card-img-top" alt="Nakas">
-            <div class="card-body">
-              <h5 class="card-title">Nakas 75 X 50 X 50 CM </h5>
-              <p class="card-text">Deskripsi Nakas</p>
-              <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
-            </div>
-          </div>
     </div>
 </body>
 </html>
