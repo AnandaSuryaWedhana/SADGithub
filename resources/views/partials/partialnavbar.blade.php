@@ -18,9 +18,6 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link " aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{ ($title === "entrypembeli" or $title === "updatedeletepembeli" or $title === "updatepembeli") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Pembeli
