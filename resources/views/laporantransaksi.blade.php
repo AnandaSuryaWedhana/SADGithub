@@ -14,12 +14,12 @@
     @include('partials.partialnavbar')
     <div class="container mt-5">
         <h1 class="text-center mb-4">Laporan Transaksi</h1>
-        <div class="p-3 mb-2 bg-secondary text-white rounded">
+        {{-- <div class="p-3 mb-2 bg-secondary text-white rounded">
           <form action="" method="post">
             <label for="exampleFormControlInput1" class="form-label">Pilih Tanggal :</label>
             <input class="form-control" type="datetime-local" name="tanggal" placeholder="Select DateTime">
           </form>
-        </div>
+        </div> --}}
 
         <!--Table-->
         <table class="table table-striped table-hover ">
@@ -91,9 +91,9 @@
         </table>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
       flatpickr("input[type=datetime-local]", {});
-    </script>
+    </script> --}}
   </body>
 </html>
