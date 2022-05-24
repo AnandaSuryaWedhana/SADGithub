@@ -15,11 +15,11 @@ class laporanproduklaris extends Controller
      */
     public function index()
     {
-        $data = array('listdata' => DB::table('PRODUK')
+        $data = ['listdata' => DB::table('PRODUK')
             ->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
             ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
             ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
-            ->get());
+            ->paginate(10)];
         return view('laporanproduklaris',[
             'title' => 'laporanproduklaris'
         ],$data);
