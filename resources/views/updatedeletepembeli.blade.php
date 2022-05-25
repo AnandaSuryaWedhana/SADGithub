@@ -69,7 +69,7 @@
 
 
         </table>
-        <div class="d-flex justify-content-center">{{ $list->links() }}</div>
+        <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
     </div>
   </body>
 </html>
