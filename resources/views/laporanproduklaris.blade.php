@@ -51,7 +51,7 @@
               @endforeach
           </tbody>
         </table>
-        <div class="d-flex justify-content-center">{{ $listdata->links() }}</div>
+        <div class="d-flex justify-content-center">{!! $listdata->appends(Request::except('page'))->render() !!}</div>
       </div>
   </body>
 </html>
