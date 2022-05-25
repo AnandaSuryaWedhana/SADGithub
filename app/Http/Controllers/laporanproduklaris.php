@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PRODUK;
+use App\Models\modellaporanproduklaris;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -19,8 +19,7 @@ class laporanproduklaris extends Controller
         $searcheddata = $request->input('searchside');
         $searcheddata = Str::lower($searcheddata);
         if(!empty($searcheddata)){
-            $data = ['listdata' => DB::table('PRODUK')
-            ->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+            $data = ['listdata' => modellaporanproduklaris::join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
             ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
             ->where('PRODUK.NAMA_PRODUK','like','%' . $searcheddata . '%')
             ->orWhere('KATEGORI.NAMA_KATEGORI','like','%' . $searcheddata . '%')
@@ -29,8 +28,7 @@ class laporanproduklaris extends Controller
             ->paginate(10)];
         }
         else{
-            $data = ['listdata' => DB::table('PRODUK')
-            ->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+            $data = ['listdata' => modellaporanproduklaris::join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
             ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
             ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
             ->paginate(10)];
