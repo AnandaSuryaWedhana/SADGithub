@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class portofolioprodukmarketing extends Controller
 {
@@ -13,7 +15,7 @@ class portofolioprodukmarketing extends Controller
      */
     public function index()
     {
-
+        $data = DB::table('PRODUK')->get();
         return view('portofolioprodukmarketing',[
             'title' => 'Portofolio Produk'
         ]);
