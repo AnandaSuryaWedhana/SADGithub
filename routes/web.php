@@ -55,6 +55,7 @@ Route::get('/portofolioprodukmarketing/mejabelajar',[portofolioprodukmarketing::
 Route::get('/portofolioprodukmarketing/lemari',[portofolioprodukmarketing::class,'displaylemari']);
 Route::get('/portofolioprodukmarketing/displaytv',[portofolioprodukmarketing::class,'displaydisplaytv']);
 Route::get('/portofolioprodukmarketing/mejarias',[portofolioprodukmarketing::class,'displaymejarias']);
+Route::get('/detailportofolioprodukmarketing/{id}',[portofolioprodukmarketing::class,'show']);
 Route::get('/detailportofolioprodukmarketing',function(){
     return view('detailportofolioprodukmarketing',[
         "title" => "detailportofolioprodukmarketing"
