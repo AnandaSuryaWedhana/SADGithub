@@ -21,17 +21,20 @@
           </form>
     </div>
     <div class="container mt-4">
-        <h1 class="text-center">Nakas</h1>
+        <h1 class="text-center">{{ $name }}</h1>
     </div>
     <div class="container-fluid mt-4" style="padding:10px;display:flex">
+        @foreach ($list as $d)
         <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="photo\nakasphoto.jpg" class="card-img-top" alt="Nakas">
+            <img src="{{ $photo }}" class="card-img-top" alt="Nakas">
             <div class="card-body">
-              <h5 class="card-title">Nakas 75 X 50 X 50 CM </h5>
-              <p class="card-text">Deskripsi Nakas</p>
+              <h5 class="card-title">{{ $d->NAMA_PRODUK }}</h5>
+              <p class="card-text">{{ $d->DESKRIPSI_PRODUK }}</p>
               <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
             </div>
           </div>
+        @endforeach
     </div>
+    <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
 </body>
 </html>
