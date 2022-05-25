@@ -48,6 +48,13 @@ Route::get('/laporantransaksi',function(){
 });
 Route::get('/laporanproduklaris',[laporanproduklaris::class,'index']);
 Route::get('/portofolioprodukmarketing',[portofolioprodukmarketing::class,'index']);
+Route::get('/portofolioprodukmarketing/nakas',[portofolioprodukmarketing::class,'displaynakas']);
+Route::get('/portofolioprodukmarketing/dipan',[portofolioprodukmarketing::class,'displaydipan']);
+Route::get('/portofolioprodukmarketing/kitchenset',[portofolioprodukmarketing::class,'displaykitchenset']);
+Route::get('/portofolioprodukmarketing/mejabelajar',[portofolioprodukmarketing::class,'displaymejabelajar']);
+Route::get('/portofolioprodukmarketing/lemari',[portofolioprodukmarketing::class,'displaylemari']);
+Route::get('/portofolioprodukmarketing/displaytv',[portofolioprodukmarketing::class,'displaydisplaytv']);
+Route::get('/portofolioprodukmarketing/mejarias',[portofolioprodukmarketing::class,'displaymejarias']);
 Route::get('/detailportofolioprodukmarketing',function(){
     return view('detailportofolioprodukmarketing',[
         "title" => "detailportofolioprodukmarketing"
