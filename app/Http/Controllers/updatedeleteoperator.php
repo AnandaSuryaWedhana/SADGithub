@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\updatedeleteoperatormodel;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\Else_;
 
 class updatedeleteoperator extends Controller
 {
@@ -14,12 +16,23 @@ class updatedeleteoperator extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = array('list'=>DB::table('USER')->get());
+        $searcheddata = $request->input('searchside');
+        $searcheddata = Str::lower($searcheddata);
+        if(!empty($searcheddata)){
+            $data = array('list'=>DB::table('USER')
+            ->where('ID_USER','like','%' . $searcheddata . '%')
+            ->orWhere('USERNAME','like','%' . $searcheddata . '%')
+            ->orWhere('ROLE','like','%' . $searcheddata . '%')
+            ->paginate(10));
+        }
+        else{
+            $data = array('list'=>DB::table('USER')->paginate(10));
+        }
         return view('updatedeleteoperator',[
             'title' => 'updatedeleteoperator'
-        ],$data);
+        ],$data)->with(['inputdata' => $searcheddata]);
     }
 
     /**
