@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\modelupdatedeletepembeli;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class updatedeletepembeli extends Controller
 {
@@ -13,14 +14,32 @@ class updatedeletepembeli extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pembeli = [
-            'list' => modelupdatedeletepembeli::paginate(10)
-        ];
+        $searcheddata = $request->input('searchside');
+        $searcheddata = Str::lower($searcheddata);
+        if(!empty($searcheddata)){
+            $data = [
+                // 'listdata' => laporanproduk::sortable()->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+                // ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
+                // ->where('PRODUK.NAMA_PRODUK','like','%' . $searcheddata . '%')
+                // ->orWhere('KATEGORI.NAMA_KATEGORI','like','%' . $searcheddata . '%')
+                // ->orWhere('PRODUK.ID_PRODUK','like','%' . $searcheddata . '%')
+                // ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
+                // ->paginate(10)
+                'list' => modelupdatedeletepembeli::where('NAMA_PEMBELI', 'like', '%' . $searcheddata . '%')
+                ->orWhere('ID_PEMBELI', 'like', '%' . $searcheddata . '%')
+                ->paginate(10)
+            ];
+        }
+        else{
+            $data = [
+                'list' => modelupdatedeletepembeli::paginate(10)
+            ];
+        }
         return view('updatedeletepembeli',[
             'title'=>'updatedeletepembeli'
-        ],$pembeli);
+        ],$data)->with(['inputdata' => $searcheddata]);
     }
 
     /**
