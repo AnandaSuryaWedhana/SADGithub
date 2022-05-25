@@ -23,10 +23,14 @@
                           Produk
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing">Nakas</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing">Dipan</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing">Kitchen Set</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing">Meja Belajar</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing">Produk lengkap</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/nakas">Nakas</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/dipan">Dipan</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/kitchenset">Kitchen Set</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/mejabelajar">Meja Belajar</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/lemari">Lemari</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/displaytv">Display TV</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/mejarias">Meja Rias</a></li>
                         </ul>
                     </li>
               </li>
