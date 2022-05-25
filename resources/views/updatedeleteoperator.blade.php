@@ -25,6 +25,14 @@
             </div>
         @endif
         <h1 class="text-center">Update & Delete Operator</h1>
+        <form method="get">
+            <div class="form-group row mb-4 mt-4">
+              <label for="exampleDataList" class="col-sm-2 col-form-label">Cari Data :</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="searchside" autofocus="true" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." value="{{ $inputdata }}">
+              </div>
+            </div>
+          </form>
       <div class="table-responsive mt-4">
 
         <!--Table-->
@@ -57,6 +65,7 @@
           </tbody>
         </table>
       </div>
+      <div class="d-flex justify-content-center">{{ $list->links() }}</div>
     </div>
   </body>
 </html>
