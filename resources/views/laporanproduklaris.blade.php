@@ -13,6 +13,14 @@
     @include('partials.partialnavbar')
     <div class="container mt-5">
         <h1 class="text-center mb-4">Laporan Produk Laris</h1>
+        <form method="get">
+            <div class="form-group row mb-4 mt-4">
+              <label for="exampleDataList" class="col-sm-2 col-form-label">Cari Data :</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="searchside" autofocus="true" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." value="{{ $inputdata }}">
+              </div>
+            </div>
+          </form>
 
         <!--Table-->
         <table class="table table-striped table-hover ">
