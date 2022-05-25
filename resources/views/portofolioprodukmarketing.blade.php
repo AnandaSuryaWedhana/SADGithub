@@ -15,25 +15,21 @@
 <body>
     @include('partials.partialnavbarmarketing')
     <div class="container mt-4">
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-warning" type="submit">Search</button>
-          </form>
-    </div>
-    <div class="container mt-4">
         <h1 class="text-center">{{ $name }}</h1>
     </div>
-    <div class="container-fluid mt-4" style="padding:10px;display:flex">
-        @foreach ($list as $d)
-        <div class="card rounded" style="width: 18rem; margin:10px">
-            <img src="{{ $photo }}" class="card-img-top" alt="Nakas">
-            <div class="card-body">
-              <h5 class="card-title">{{ $d->NAMA_PRODUK }}</h5>
-              <p class="card-text">{{ $d->DESKRIPSI_PRODUK }}</p>
-              <a href="/detailportofolioprodukmarketing/{{ $d->ID_PRODUK }}" class="btn btn-primary">Lebih Lengkap</a>
-            </div>
-          </div>
-        @endforeach
+    <div class="container1 mt-4 mb-4">
+        <div class="container row" style="width: 90%; margin:auto">
+                @foreach ($list as $d)
+                <div class="card rounded" style="width: 18rem; margin:10px">
+                    <img src="{{ $photo }}" class="card-img-top" alt="Nakas">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ $d->NAMA_PRODUK }}</h5>
+                    <p class="card-text">{{ $d->DESKRIPSI_PRODUK }}</p>
+                    <a href="/detailportofolioprodukmarketing/{{ $d->ID_PRODUK }}" class="btn btn-primary">Lebih Lengkap</a>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
     <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
 </body>
