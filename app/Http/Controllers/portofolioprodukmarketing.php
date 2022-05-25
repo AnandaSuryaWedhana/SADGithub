@@ -15,10 +15,84 @@ class portofolioprodukmarketing extends Controller
      */
     public function index()
     {
-        $data = DB::table('PRODUK')->get();
+        $name = 'PRODUK';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->paginate(5)
+        ];
         return view('portofolioprodukmarketing',[
-            'title' => 'Portofolio Produk'
-        ]);
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaynakas(){
+        $name = 'NAKAS';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP004')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaydipan(){
+        $name = 'DIPAN';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP003')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaykitchenset(){
+        $name = 'KITCHEN SET';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP001')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaymejabelajar(){
+        $name = 'MEJA BELAJAR';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP007')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaylemari(){
+        $name = 'LEMARI';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP002')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaydisplaytv(){
+        $name = 'DISPLAY TV';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP005')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
+    public function displaymejarias(){
+        $name = 'MEJA RIAS';
+        $data = [
+            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP006')->paginate(5)
+        ];
+        return view('portofolioprodukmarketing',[
+            'title' => 'portofolioprodukmarketing',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
     }
 
     /**
