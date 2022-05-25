@@ -30,7 +30,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ $d->NAMA_PRODUK }}</h5>
               <p class="card-text">{{ $d->DESKRIPSI_PRODUK }}</p>
-              <a href="/detailportofolioprodukmarketing" class="btn btn-primary">Lebih Lengkap</a>
+              <a href="/detailportofolioprodukmarketing/{{ $d->ID_PRODUK }}" class="btn btn-primary">Lebih Lengkap</a>
             </div>
           </div>
         @endforeach
