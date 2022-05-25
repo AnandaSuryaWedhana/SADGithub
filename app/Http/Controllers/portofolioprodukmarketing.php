@@ -124,7 +124,12 @@ class portofolioprodukmarketing extends Controller
      */
     public function show($id)
     {
-        //
+        $produk = DB::select('select * from PRODUK where ID_PRODUK = ?', [$id]);
+        return view('detailportofolioprodukmarketing',[
+            'title'=>'detailportofolioprodukmarketing',
+            'data'=>$produk,
+            'photo' => '\photo\nakasphoto.jpg'
+        ]);
     }
 
     /**
