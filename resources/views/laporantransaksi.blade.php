@@ -40,60 +40,23 @@
 
           <!--Table body-->
           <tbody>
-            <tr class="align-middle text-center">
-              <th scope="row">1</th>
-              <td>Lorem ipsum dolor</td>
-              <td >xxx</td>
-              <td >xxx</td>
-              <td >xxx</td>
-              <td >xxx</td>
-              <td >xxx</td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">2</th>
-                <td>Lorem ipsum dolor</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-              </tr>
+              @foreach ($list as $d)
               <tr class="align-middle text-center">
-                <th scope="row">3</th>
-                <td>Lorem ipsum dolor</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
+                <th scope="row">{{ $d->ID_TRANSAKSI }}</th>
+                <td>{{ $d->NAMA_PEMBELI }}</td>
+                <td >{{ $d->TANGGAL_TRANSAKSI }}</td>
+                <td >{{ $d->JUMLAHPRODUK_TRANSAKSI }}</td>
+                <td >{{ $d->TOTAL_TRANSAKSI }}</td>
+                <td >{{ $d->PEMBAYARAN_DITERIMA }}</td>
+                <td >{{ $d->STATUS_DEALTRANSAKSI }}</td>
               </tr>
-              <tr class="align-middle text-center">
-                <th scope="row">4</th>
-                <td>Lorem ipsum dolor</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-              </tr>
-              <tr class="align-middle text-center">
-                <th scope="row">5</th>
-                <td>Lorem ipsum dolor</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-                <td >xxx</td>
-              </tr>
+              @endforeach
           </tbody>
 
 
         </table>
       </div>
     </div>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-      flatpickr("input[type=datetime-local]", {});
-    </script> --}}
+    <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
   </body>
 </html>
