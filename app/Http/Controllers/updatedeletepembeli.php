@@ -27,14 +27,14 @@ class updatedeletepembeli extends Controller
                 // ->orWhere('PRODUK.ID_PRODUK','like','%' . $searcheddata . '%')
                 // ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
                 // ->paginate(10)
-                'list' => modelupdatedeletepembeli::where('NAMA_PEMBELI', 'like', '%' . $searcheddata . '%')
+                'list' => modelupdatedeletepembeli::sortable()->where('NAMA_PEMBELI', 'like', '%' . $searcheddata . '%')
                 ->orWhere('ID_PEMBELI', 'like', '%' . $searcheddata . '%')
                 ->paginate(10)
             ];
         }
         else{
             $data = [
-                'list' => modelupdatedeletepembeli::paginate(10)
+                'list' => modelupdatedeletepembeli::sortable()->paginate(10)
             ];
         }
         return view('updatedeletepembeli',[
