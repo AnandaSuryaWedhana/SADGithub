@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class laporantransaksi extends Controller
 {
@@ -13,7 +14,12 @@ class laporantransaksi extends Controller
      */
     public function index()
     {
-        //
+        $data = [
+            'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','PEMBELI.ID_PEMBELI','=','DEAL_TRANSAKSI.ID_PEMBELI')->select('DEAL_TRANSAKSI.ID_TRANSAKSI','PEMBELI.NAMA_PEMBELI', 'DEAL_TRANSAKSI.TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','DEAL_TRANSAKSI.TOTAL_TRANSAKSI','DEAL_TRANSAKSI.PEMBAYARAN_DITERIMA','DEAL_TRANSAKSI.STATUS_DEALTRANSAKSI')->paginate(10)
+        ];
+        return view('laporantransaksi',[
+            'title' => 'laporantransaksi'
+        ],$data);
     }
 
     /**
