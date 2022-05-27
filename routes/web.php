@@ -3,6 +3,7 @@
 use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
 use App\Http\Controllers\laporanproduklaris;
+use App\Http\Controllers\laporantransaksi;
 use App\Http\Controllers\portofolioprodukmarketing;
 use App\Http\Controllers\updatedeleteoperator;
 use App\Http\Controllers\updatedeletepembeli;
@@ -56,6 +57,7 @@ Route::get('/portofolioprodukmarketing/lemari',[portofolioprodukmarketing::class
 Route::get('/portofolioprodukmarketing/displaytv',[portofolioprodukmarketing::class,'displaydisplaytv']);
 Route::get('/portofolioprodukmarketing/mejarias',[portofolioprodukmarketing::class,'displaymejarias']);
 Route::get('/detailportofolioprodukmarketing/{id}',[portofolioprodukmarketing::class,'show']);
+Route::get('/laporantransaksi',[laporantransaksi::class,'index']);
 Route::get('/detailportofolioprodukmarketing',function(){
     return view('detailportofolioprodukmarketing',[
         "title" => "detailportofolioprodukmarketing"
