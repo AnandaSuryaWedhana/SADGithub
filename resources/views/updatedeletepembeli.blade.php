@@ -40,8 +40,8 @@
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>ID PEMBELI</th>
-              <th class="th-lg">NAMA</th>
+              <th>@sortablelink('ID_PEMBELI', 'ID PEMBELI')</th>
+              <th class="th-lg">@sortablelink('NAMA_PEMBELI', 'NAMA PEMBELI')</th>
               <th class="th-lg">ALAMAT</th>
               <th class="th-lg">NOMOR TELEPON</th>
               <th class="th-lg">JUMLAH PEMBELIAN PRODUK</th>
