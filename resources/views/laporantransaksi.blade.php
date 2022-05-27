@@ -27,8 +27,9 @@
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>ID Transaksi</th>
-              <th class="th-lg">ID Pembeli</th>
+              <th>@sortablelink('ID_TRANSAKSI','ID TRANSAKSI')</th>
+              <th class="th-lg">@sortablelink('ID_PEMBELI','ID PEMBELI')</th>
+              <th class="th-lg">@sortablelink('NAMA_PEMBELI','NAMA PEMBELI')</th>
               <th class="th-lg">Tanggal Transaksi</th>
               <th class="th-lg">Jumlah Produk Transaksi</th>
               <th class="th-lg">Total transaksi</th>
@@ -43,6 +44,7 @@
               @foreach ($list as $d)
               <tr class="align-middle text-center">
                 <th scope="row">{{ $d->ID_TRANSAKSI }}</th>
+                <th scope="row">{{ $d->ID_PEMBELI }}</th>
                 <td>{{ $d->NAMA_PEMBELI }}</td>
                 <td >{{ $d->TANGGAL_TRANSAKSI }}</td>
                 <td >{{ $d->JUMLAHPRODUK_TRANSAKSI }}</td>
