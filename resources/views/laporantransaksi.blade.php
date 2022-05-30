@@ -27,9 +27,9 @@
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>@sortablelink('ID_TRANSAKSI','ID TRANSAKSI')</th>
-              <th class="th-lg">@sortablelink('ID_PEMBELI','ID PEMBELI')</th>
-              <th class="th-lg">@sortablelink('PEMBELI.NAMA_PEMBELI','NAMA PEMBELI')</th>
+              <th>ID_TRANSAKSI</th>
+              <th class="th-lg">ID_PEMBELI</th>
+              <th class="th-lg">NAMA_PEMBELI</th>
               <th class="th-lg">Tanggal Transaksi</th>
               <th class="th-lg">Jumlah Produk Transaksi</th>
               <th class="th-lg">Total transaksi</th>
@@ -41,11 +41,11 @@
 
           <!--Table body-->
           <tbody>
-              @foreach ($list as $d)
+              @foreach ($data as $d)
               <tr class="align-middle text-center">
                 <th scope="row">{{ $d->ID_TRANSAKSI }}</th>
                 <th scope="row">{{ $d->ID_PEMBELI }}</th>
-                <td>{{ $d->NAMA_PEMBELI }}</td>
+                <td>{{ $d->pembeli->NAMA_PEMBELI }}</td>
                 <td >{{ $d->TANGGAL_TRANSAKSI }}</td>
                 <td >{{ $d->JUMLAHPRODUK_TRANSAKSI }}</td>
                 <td >{{ $d->TOTAL_TRANSAKSI }}</td>
@@ -59,6 +59,6 @@
         </table>
       </div>
     </div>
-    <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
+    {{-- <div class="d-flex justify-content-center">{!! $data->appends(Request::except('page'))->render() !!}</div> --}}
   </body>
 </html>
