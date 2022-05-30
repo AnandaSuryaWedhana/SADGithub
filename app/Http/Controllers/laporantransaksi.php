@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DEAL_TRANSAKSI;
 use App\Models\modellaporantransaksi;
+use App\Models\modelpembeli;
 use Illuminate\Http\Request;
-
+use PhpParser\Node\Stmt\Return_;
 
 class laporantransaksi extends Controller
 {
@@ -15,12 +17,10 @@ class laporantransaksi extends Controller
      */
     public function index()
     {
-        $data = [
-            'list' => modellaporantransaksi::sortable()->join('PEMBELI','PEMBELI.ID_PEMBELI','=','DEAL_TRANSAKSI.ID_PEMBELI')->select('DEAL_TRANSAKSI.ID_TRANSAKSI','DEAL_TRANSAKSI.ID_PEMBELI','PEMBELI.NAMA_PEMBELI', 'DEAL_TRANSAKSI.TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','DEAL_TRANSAKSI.TOTAL_TRANSAKSI','DEAL_TRANSAKSI.PEMBAYARAN_DITERIMA','DEAL_TRANSAKSI.STATUS_DEALTRANSAKSI')->paginate(10)
-        ];
+        $data = modellaporantransaksi::with('pembeli')->get();
         return view('laporantransaksi',[
             'title' => 'laporantransaksi'
-        ],$data);
+        ],compact('data'));
     }
 
     /**
