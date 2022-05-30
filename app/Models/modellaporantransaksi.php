@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
+use App\Models\modelpembeli;
 
 class modellaporantransaksi extends Model
 {
@@ -12,8 +13,9 @@ class modellaporantransaksi extends Model
     use Sortable;
     protected $table = 'DEAL_TRANSAKSI';
     protected $primarykey = 'ID_TRANSAKSI';
+    protected $fillable = ['ID_TRANSAKSI'];
     public $timestamp = false;
-    public $sortable = [
-        'ID_TRANSAKSI', 'PEMBELI.NAMA_PEMBELI', 'ID_PEMBELI'
-    ];
+    public function pembeli(){
+        return $this->belongsTo(modelpembeli::class,'foreign_key','ID_PEMBELI');
+    }
 }
