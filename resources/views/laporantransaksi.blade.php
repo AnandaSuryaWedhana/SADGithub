@@ -29,7 +29,7 @@
             <tr class="text-center">
               <th>@sortablelink('ID_TRANSAKSI','ID TRANSAKSI')</th>
               <th class="th-lg">@sortablelink('ID_PEMBELI','ID PEMBELI')</th>
-              <th class="th-lg">@sortablelink('NAMA_PEMBELI','NAMA PEMBELI')</th>
+              <th class="th-lg">@sortablelink('PEMBELI.NAMA_PEMBELI','NAMA PEMBELI')</th>
               <th class="th-lg">Tanggal Transaksi</th>
               <th class="th-lg">Jumlah Produk Transaksi</th>
               <th class="th-lg">Total transaksi</th>
