@@ -54,7 +54,7 @@
       </div>
       <div class="mb-3" style="width: 25%">
           <label for="inputStatusPembayaran" class="form-label">Status Pembayaran :</label>
-          <input type="text" name="StatusPembayaran" class="form-control" id="inputStatusPemabayaram" value="{{ $data[0]->STATUSDEAL_TRANSAKSI }}" />
+          <input type="text" name="StatusPembayaran" class="form-control" id="inputStatusPemabayaram" value="{{ $data[0]->STATUS_DEALTRANSAKSI }}" />
           <span style="color: red">@error('StatusPembayaran'){{ $message }}@enderror</span>
         </div>
       </div>
