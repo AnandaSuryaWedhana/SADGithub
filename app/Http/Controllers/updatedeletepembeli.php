@@ -16,30 +16,30 @@ class updatedeletepembeli extends Controller
      */
     public function index(Request $request)
     {
-        $searcheddata = $request->input('searchside');
-        $searcheddata = Str::lower($searcheddata);
-        if(!empty($searcheddata)){
+        // $searcheddata = $request->input('searchside');
+        // $searcheddata = Str::lower($searcheddata);
+        // if(!empty($searcheddata)){
+        //     $data = [
+        //         // 'listdata' => laporanproduk::sortable()->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+        //         // ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
+        //         // ->where('PRODUK.NAMA_PRODUK','like','%' . $searcheddata . '%')
+        //         // ->orWhere('KATEGORI.NAMA_KATEGORI','like','%' . $searcheddata . '%')
+        //         // ->orWhere('PRODUK.ID_PRODUK','like','%' . $searcheddata . '%')
+        //         // ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
+        //         // ->paginate(10)
+        //         'list' => modelupdatedeletepembeli::sortable()->where('NAMA_PEMBELI', 'like', '%' . $searcheddata . '%')
+        //         ->orWhere('ID_PEMBELI', 'like', '%' . $searcheddata . '%')
+        //         ->paginate(10)
+        //     ];
+        // }
+        // else{
             $data = [
-                // 'listdata' => laporanproduk::sortable()->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
-                // ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
-                // ->where('PRODUK.NAMA_PRODUK','like','%' . $searcheddata . '%')
-                // ->orWhere('KATEGORI.NAMA_KATEGORI','like','%' . $searcheddata . '%')
-                // ->orWhere('PRODUK.ID_PRODUK','like','%' . $searcheddata . '%')
-                // ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
-                // ->paginate(10)
-                'list' => modelupdatedeletepembeli::sortable()->where('NAMA_PEMBELI', 'like', '%' . $searcheddata . '%')
-                ->orWhere('ID_PEMBELI', 'like', '%' . $searcheddata . '%')
-                ->paginate(10)
-            ];
-        }
-        else{
-            $data = [
-                'list' => modelupdatedeletepembeli::sortable()->paginate(10)
-            ];
-        }
+                'list' => DB::table('PEMBELI')->get()
+             ];
+        // }
         return view('updatedeletepembeli',[
             'title'=>'updatedeletepembeli'
-        ],$data)->with(['inputdata' => $searcheddata]);
+        ],$data);
     }
 
     /**
