@@ -71,8 +71,8 @@ class updatedeletetransaksi extends Controller
             'TanggalTransaksi' => 'required|regex:^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$',
             'JumlahTransaksi' =>'required|numeric|gt:0',
             'TotalTransaksi' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
-            'PembayaranDiterima' => 'required|regex:/^(\d+(,\d{1,2})?)?$/'
-            'StatusPembayaran' => 'required|regex:/^[a-zA-Z ]*$/|max:11|min:11'
+            'PembayaranDiterima' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
+            'StatusPembayaran' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11'
         ]);
         $tanggal_transaksi = $request->input('TanggalTransaksi' );
         $jumlah_transaksi = $request->input('JumlahTransaksi');
