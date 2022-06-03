@@ -16,26 +16,26 @@ class laporanproduklaris extends Controller
      */
     public function index(Request $request)
     {
-        $searcheddata = $request->input('searchside');
-        $searcheddata = Str::lower($searcheddata);
-        if(!empty($searcheddata)){
-            $data = ['listdata' => modellaporanproduklaris::join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
-            ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
-            ->where('PRODUK.NAMA_PRODUK','like','%' . $searcheddata . '%')
-            ->orWhere('KATEGORI.NAMA_KATEGORI','like','%' . $searcheddata . '%')
-            ->orWhere('PRODUK.ID_PRODUK','like','%' . $searcheddata . '%')
-            ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
-            ->paginate(10)];
-        }
-        else{
-            $data = ['listdata' => modellaporanproduklaris::join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
-            ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
-            ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
-            ->paginate(10)];
-        }
+        // $searcheddata = $request->input('searchside');
+        // $searcheddata = Str::lower($searcheddata);
+        // if(!empty($searcheddata)){
+        //     $data = ['listdata' => modellaporanproduklaris::join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+        //     ->select('PRODUK.ID_PRODUK', 'KATEGORI.NAMA_KATEGORI', 'PRODUK.NAMA_PRODUK', 'PRODUK.DESKRIPSI_PRODUK', 'PRODUK.HARGA_PRODUK', 'JUMLAHPRODUK_TRANSAKSI')
+        //     ->where('PRODUK.NAMA_PRODUK','like','%' . $searcheddata . '%')
+        //     ->orWhere('KATEGORI.NAMA_KATEGORI','like','%' . $searcheddata . '%')
+        //     ->orWhere('PRODUK.ID_PRODUK','like','%' . $searcheddata . '%')
+        //     ->orderBy('JUMLAHPRODUK_TRANSAKSI', 'desc')
+        //     ->paginate(10)];
+        // }
+        // else{
+            $data = [
+                'list'=>DB::table('PRODUK')->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+                ->select('NAMA_PRODUK','ID_PRODUK','NAMA_KATEGORI','DESKRIPSI_PRODUK','HARGA_PRODUK','JUMLAHPRODUK_TRANSAKSI')->get()
+            ];
+        // }
         return view('laporanproduklaris',[
             'title' => 'laporanproduklaris'
-        ],$data)->with(['inputdata' => $searcheddata]);
+        ],$data);
     }
 
     /**
