@@ -17,5 +17,7 @@ class modellaporantransaksi extends Model
     public $timestamp = false;
     public function pembeli(){
         return $this->belongsTo(modelpembeli::class,'foreign_key','ID_PEMBELI');
+        //  return $this->hasOneThrough(modellaporantransaksi::class,modelpembeli::class,'ID_PEMBELI','ID_PEMBELI');
+
     }
 }

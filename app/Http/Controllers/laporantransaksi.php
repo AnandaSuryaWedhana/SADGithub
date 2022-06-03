@@ -7,6 +7,7 @@ use App\Models\modellaporantransaksi;
 use App\Models\modelpembeli;
 use Illuminate\Http\Request;
 use PhpParser\Node\Stmt\Return_;
+use Illuminate\support\Facades\DB;
 
 class laporantransaksi extends Controller
 {
@@ -17,10 +18,15 @@ class laporantransaksi extends Controller
      */
     public function index()
     {
-        $data = modellaporantransaksi::with('pembeli')->get();
+         $data = [
+             'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('DEAL_TRANSAKSI.*','PEMBELI.NAMA_PEMBELI')->paginate(10)
+            ];
+        // $data = modelpembeli::where('ID_PEMBELI','CA0001');
+        // $data->transaksi()->get();
+        //     dd('$data');
         return view('laporantransaksi',[
             'title' => 'laporantransaksi'
-        ],compact('data'));
+        ],$data);
     }
 
     /**

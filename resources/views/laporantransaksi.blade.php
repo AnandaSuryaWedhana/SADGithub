@@ -22,7 +22,7 @@
         </div> --}}
 
         <!--Table-->
-        <table class="table table-striped table-hover ">
+        <table id="dtBasicExample" class="table table-striped table-hover ">
 
           <!--Table head-->
           <thead>
@@ -41,11 +41,11 @@
 
           <!--Table body-->
           <tbody>
-              @foreach ($data as $d)
+              @foreach ($list as $d)
               <tr class="align-middle text-center">
                 <th scope="row">{{ $d->ID_TRANSAKSI }}</th>
                 <th scope="row">{{ $d->ID_PEMBELI }}</th>
-                <td>{{ $d->pembeli->NAMA_PEMBELI }}</td>
+                <td>{{ $d->NAMA_PEMBELI }}</td>
                 <td >{{ $d->TANGGAL_TRANSAKSI }}</td>
                 <td >{{ $d->JUMLAHPRODUK_TRANSAKSI }}</td>
                 <td >{{ $d->TOTAL_TRANSAKSI }}</td>
@@ -59,6 +59,12 @@
         </table>
       </div>
     </div>
-    {{-- <div class="d-flex justify-content-center">{!! $data->appends(Request::except('page'))->render() !!}</div> --}}
+    <div class="d-flex justify-content-center">{!! $data->appends(Request::except('page'))->render() !!}</div>
+    <script>
+        $(document).ready(function () {
+            $('#dtBasicExample').DataTable();
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
   </body>
 </html>
