@@ -10,7 +10,7 @@ class modelupdatedeletetransaksi extends Model
 {
     use HasFactory;
     use Sortable;
-    protected $table = 'TRANSAKSI';
+    protected $table = 'DEAL_TRANSAKSI';
     protected $primarykey = 'ID_TRANSAKSI';
     public $timestamp = false;
     public $sortable = [
