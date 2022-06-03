@@ -41,11 +41,11 @@
 
           <!--Table head-->
           <thead>
-            <tr class="text-center">
+            <tr>
               <th>ID Operator</th>
               <th class="th-lg">Username</th>
               <th class="th-lg">Role</th>
-              <th class="th-lg">Action</th>
+              <th class="th-lg align-middle text-center" >Action</th>
             </tr>
           </thead>
           <!--Table head-->
@@ -53,11 +53,11 @@
           <!--Table body-->
           <tbody>
             @foreach ($list as $item)
-            <tr class="align-middle text-center">
+            <tr>
                 <th scope="row">{{ $item->ID_USER }}</th>
                 <td>{{ $item->USERNAME }}</td>
                 <td >{{ $item->ROLE }}</td>
-                <td>
+                <td class="align-middle text-center">
                   <a href="/editoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-info">Edit</button></a>
                   <a href="/deleteoperator/{{ $item->ID_USER }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
