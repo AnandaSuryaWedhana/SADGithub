@@ -32,6 +32,10 @@ Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/editpembeli/{id}',[updatedeletepembeli::class,'show']);
 Route::get('/deletepembeli/{id}',[updatedeletepembeli::class,'deletepembeli']);
 Route::post('/updatepembeli/{id}',[updatedeletepembeli::class,'updatepembeli']);
+Route::get('/edittransaksi/{id}',[updatedeletetransaksi::class,'show']);
+Route::get('/deletetransaksi/{id}',[updatedeletetransaksi::class,'deletetransaksi']);
+Route::post('/updatetransaski/{id}',[updatedeletepembeli::class,'updatetransaksi']);
+Route::get('/updatedeletetransaksi',[updatedeletetransaksi::class,'index']);
 Route::get('/header', function () {
     return view('header',[
         "title" => "header"
