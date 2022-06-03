@@ -39,13 +39,13 @@
 
           <!--Table head-->
           <thead>
-            <tr class="text-center">
+            <tr>
               <th>ID PEMBELI</th>
               <th class="th-lg">NAMA PEMBELI</th>
               <th class="th-lg">ALAMAT</th>
               <th class="th-lg">NOMOR TELEPON</th>
               <th class="th-lg">JUMLAH PEMBELIAN PRODUK</th>
-              <th class="th-lg">Action</th>
+              <th class="th-lg align-middle text-center">Action</th>
             </tr>
           </thead>
           <!--Table head-->
@@ -53,12 +53,12 @@
           <!--Table body-->
           <tbody>
               @foreach ($list as $data)
-              <tr class="align-middle text-center">
+              <tr>
                 <th scope="row">{{ $data->ID_PEMBELI }}</th>
                 <td>{{ $data->NAMA_PEMBELI }}</td>
                 <td >{{ $data->ALAMAT_PEMBELI }}</td>
                 <td >{{ $data->TELPHONE_PEMBELI }}</td>
-                <td >{{ $data->JUMLAHPRODUK_TRANSAKSI }}</td>
+                <td class="align-middle text-center">{{ $data->JUMLAHPRODUK_TRANSAKSI }}</td>
                 <td>
                   <a href="/editpembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">Edit</button></a>
                   <a href="/deletepembeli/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-danger">Delete</button></a>
