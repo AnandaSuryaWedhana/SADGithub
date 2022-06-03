@@ -18,21 +18,22 @@ class updatedeleteoperator extends Controller
      */
     public function index(Request $request)
     {
-        $searcheddata = $request->input('searchside');
-        $searcheddata = Str::lower($searcheddata);
-        if(!empty($searcheddata)){
-            $data = array('list'=>DB::table('USER')
-            ->where('ID_USER','like','%' . $searcheddata . '%')
-            ->orWhere('USERNAME','like','%' . $searcheddata . '%')
-            ->orWhere('ROLE','like','%' . $searcheddata . '%')
-            ->paginate(10));
-        }
-        else{
+        // $searcheddata = $request->input('searchside');
+        // $searcheddata = Str::lower($searcheddata);
+        // if(!empty($searcheddata)){
+        //     $data = array('list'=>DB::table('USER')
+        //     ->where('ID_USER','like','%' . $searcheddata . '%')
+        //     ->orWhere('USERNAME','like','%' . $searcheddata . '%')
+        //     ->orWhere('ROLE','like','%' . $searcheddata . '%')
+        //     ->paginate(10));
+        // }
+        // else{
             $data = array('list'=>DB::table('USER')->paginate(10));
-        }
+        // }
         return view('updatedeleteoperator',[
             'title' => 'updatedeleteoperator'
-        ],$data)->with(['inputdata' => $searcheddata]);
+        ],$data);
+        // ->with(['inputdata' => $searcheddata]);
     }
 
     /**
