@@ -19,7 +19,7 @@ class laporantransaksi extends Controller
     public function index()
     {
          $data = [
-             'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('DEAL_TRANSAKSI.*','PEMBELI.NAMA_PEMBELI')->paginate(10)
+             'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->get()
             ];
         // $data = modelpembeli::where('ID_PEMBELI','CA0001');
         // $data->transaksi()->get();
