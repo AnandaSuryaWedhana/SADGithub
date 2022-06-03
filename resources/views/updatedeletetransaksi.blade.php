@@ -12,21 +12,35 @@
   </head>
   <body>
       @include('partials.partialnavbar')
-    <div class="container mt-5">
+      <div class="container mt-5">
+        @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        @if (Session::get('successupdate'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('successupdate') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <h1 class="text-center">Update & Delete Transaksi</h1>
       <div class="table-responsive mt-4">
 
+        
         <!--Table-->
         <table class="table table-striped table-hover ">
 
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>Number</th>
-              <th class="th-lg">Id Transaksi</th>
-              <th class="th-lg">Tanggal Transaksi</th>
-              <th class="th-lg">Nama Pembeli</th>
-              <th class="th-lg">Total Transaksi
+              <th>@sortablelink('ID_TRANSAKSI', 'ID TRANSAKSI')</th>
+              <th class="th-lg">ID Pembeli</th>
+              <th class="th-lg">@sortablelink('TANGGAL_TRANSAKSI', 'TANGGAL TRANSAKSI')</th>
+              <th class="th-lg">jumlah produk Transaksi</th>
+              <th class="th-lg">Total Transaksi</th>
+              <th class="th-lg">Pembayaran Diterima</th>
               <th class="th-lg">Status Transaksi</th>
               <th class="th-lg">Edit Transaksi</th>
               </th>
@@ -36,84 +50,27 @@
 
           <!--Table body-->
           <tbody>
-            <tr class="align-middle text-center">
-                <th scope="row">1</th>
-                <td>T130422001</td>
-                <td>2022-04-13</td>
-                <td>Brama Andika</td>
-                <td>1500000</td>
-                <td >SUDAH LUNAS</a></td>
-                <td>
-                  <a href="/updatetransaksi"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletetransaksi"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-              </tr>
-            <tr class="align-middle text-center">
-              <th scope="row">2</th>
-              <td>T140422006</td>
-              <td>2022-04-14</td>
-              <td>PRAVANGASTA SUIHANGYA</td>
-              <td>14750000</td>
-              <td >SUDAH LUNAS</td>
-              <td>
-                <a href="/updatetransaksi"><button type="button" class="btn btn-info">Edit</button></a>
-                <a href="/deletetransaksi"><button type="button" class="btn btn-danger">Delete</button></a>
-              </td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">3</th>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td >Lor</td>
-                <td>
-                  <a href="/updatetransaksi"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletetransaksi"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-              </tr>
+          @foreach ($list as $data)
               <tr class="align-middle text-center">
-                <th scope="row">4</th>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td >Lor</td>
+                <th scope="row">{{ $data->ID_TRANSAKSI }}</th>
+                <td>{{ $data->ID_PEMBELI }}</td>
+                <td>{{ $data->TANGGAL_TRANSAKSI }}</td>
+                <td >{{ $data->JUMLAHPRODUK_TRANSAKSI }}</td>
+                <td >{{ $data->TOTAL_TRANSAKSI }}</td>
+                <td >{{ $data->PEMBAYARAN_DITERIMA }}</td>
+                <td >{{ $data->STATUS_DEALTRANSAKSI }}</td>
                 <td>
-                  <a href="/updatetransaksi"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletetransaksi"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/edittransaksi/{{ $data->ID_TRANSAKSI }}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <a href="/deletetransaksi/{{ $data->ID_TRANSAKSI }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
-              <tr class="align-middle text-center">
-                <th scope="row">5</th>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td >Lor</td>
-                <td>
-                  <a href="/updatetransaksi"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletetransaksi"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-              </tr>
-              <tr class="align-middle text-center">
-                <th scope="row">6</th>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td>Lorem ipsum dolor</td>
-                <td >Lor</td>
-                <td>
-                  <a href="/updatetransaksi"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletetransaksi"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-              </tr>
+              @endforeach
           </tbody>
 
 
         </table>
 
-
+        <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
       </div>
     </div>
   </body>
