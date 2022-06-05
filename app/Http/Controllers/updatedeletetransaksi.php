@@ -80,7 +80,7 @@ class updatedeletetransaksi extends Controller
         $pembayaran_diterima = $request->input('PembayaranDiterima');
         $status_pembayaran = $request->input('StatusPembayaran');
         DB::update('update DEAL_TRANSAKSI set TANGGAL_TRANSAKSI = ?, JUMLAHPRODUK_TRANSAKSI = ?,  TOTAL_TRANSAKSII = ?, PEMBAYARAN_DITERIMA = ?, STATUS_TRANSAKSI = ? where ID_TRANSAKSI= ?', [$tanggal_transaksi,$jumlah_transaksi,$total_transaksi,$pembayaran_diterima,$status_pembayaran,$id]);
-        return redirect('updatedeleteTtransaksi')->with('successupdate','Data Berhasil Diupdate!');
+        return redirect('updatedeletetransaksi')->with('successupdate','Data Berhasil Diupdate!');
     }
     /**
      * Show the form for editing the specified resource.
