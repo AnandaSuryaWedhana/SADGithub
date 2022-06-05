@@ -2,37 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> {{ $title }} </title>
     <link rel="stylesheet" href="css/entrykategori.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
 </head>
 <body>
     @include('partials.partialnavbar')
-    <div class="container mt-4">
-        <div class="title">Entry Kategori</div>
-        <form action="#">
-            <div class="kategori">
-                 <div class="input-box">
-                     <span class="details">Id Kategori</span>
-                     <input type="text" placeholder="auto-fill" required>
-                 </div>
-                 <div class="input-box">
-                    <span class="details">Nama Kategori</span>
-                    <input type="text" placeholder="Masukkan Nama Kategori" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Deskripsi Kategori</span>
-                    <input type="text" placeholder="Masukkan Deskripsi Produk" required>
-                </div>
-
+    <div class="container bg-light" style="padding:20px; border-radius:10px; border:0.1px solid rgb(201, 201, 201)">
+        <h1 class="text-center">Masukkan Kategori</h1>
+        @if (Session::get('fail'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ Session::get('fail') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <div class="button">
-                <input type="submit" value="Submit">
+        @endif
+        @if (Session::get('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        </form>
+        @endif
+    <form action="/entrykategori" method="POST">
+        @csrf
+        <div class="col-12" style="padding-top: 10px">
+            <label for="inputKategori" class="form-label">Nama Kategori : </label>
+            <input type="text" name="NamaKategori" class="form-control" id="inputKategori" value="{{ old('NamaKategori') }}"/>
+            <span style="color: red">@error('NamaKategori'){{ $message }}@enderror</span>
+        </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputDeskripsi" class="form-label">Deskripsi Kategori : </label>
+        <input type="text" name="DeskripsiKategori" class="form-control" id="inputDeskripsi" placeholder="Ukuran barang 120x5x10" value="{{ old('DeskripsiKategori') }}"/>
+        <span style="color: red">@error('DeskripsiKategori'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit">Simpan!</button>
+      </div>
+    </form>
     </div>
 </body>
 </html>

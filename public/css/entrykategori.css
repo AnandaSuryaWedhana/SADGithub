@@ -1,83 +1,11 @@
-*{
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Readex+Pro&display=swap");
+.seperatediv {
+  display: flex;
 }
-body{
+.container{
+    margin-top: 10px;
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, rgb(255, 209, 4),#fcb462 );
-  }
-  .container{
-    max-width: 700px;
-    width: 100%;
-    background: #fff;
-    padding: 25px 30px;
-    border-radius: 5px;
-  }
-  .container .title{
-      font-size: 25px;
-      font-weight: 500;
-      position: relative;
-  }
-  .container.title::before{
-    content:'' ;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background: linear-gradient(135deg, rgb(255, 209, 4),#fcb462 );
-  }
-  .container form .kategori{
-      display: flex;
-      flex-wrap:wrap ;
-      justify-content: space-between;
-  }
-  form .kategori .input-box{
-      margin-bottom: 15px;
-      width: calc(100%/2 - 20px);
-  }
-  .kategori .input-box input{
-      height: 45px;
-      width: 100%;
-      outline: none;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      padding-left: 15px;
-      font-size: 16px;
-  }
-  .kategori .input-box input:focus,
-  .kategori .input-box input:valid{
-      border-color: #fcb462;
-
-  }
-  form .produk .category .label{
-    position: absolute;
-    top: -30px;
-    font-weight: 500;
-  }
-  form .button{
-      height: 45px;
-      margin: 45px 0;
-  }
-  form .button input{
-      height: 100%;
-      width: 100%;
-      outline:none;
-      color: #fff;
-      border: none;
-      background: linear-gradient(135deg, rgb(255, 209, 4),#fcb462 );
-      font-size: 18px;
-      font-weight:500;
-    border-radius: 5px;
-    letter-spacing: 1px;
-
-
-  }
-  form .button input:hover{
-    background: linear-gradient(135deg, rgb(255, 209, 4),#fcb462 );
-  }
