@@ -68,8 +68,8 @@ class updatedeletekategori extends Controller
     }
     public function updatekategori(Request $request,$id){
         $request->validate([
-            'NamaKategori' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11'
-            'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5',
+            'NamaKategori' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
+            'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
         ]);
         $nama_kategori = $request->input('NamaKategori');
         $deskripsi_kategori = $request->input('DeskripsiKategori');
