@@ -16,8 +16,8 @@ class updatedeletekategori extends Controller
      */
     public function index(Request $request)
     {
-       
-    
+
+
         $data = [
             'list' => DB::table('KATEGORI')->get()
         ];

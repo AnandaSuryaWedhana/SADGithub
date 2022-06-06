@@ -25,7 +25,7 @@
             </div>
         @endif
         <h1 class="text-center">Update & Delete Kategori</h1>
-        
+
       <div class="table-responsive mt-4">
         <!--Table-->
         <table class="table table-striped table-hover " id="tablepembeli">
@@ -50,7 +50,7 @@
                 <td >{{ $data->DESKRIPSI_KATEGORI}}</td>
                 <td>
                   <a href="/editkategori/{{ $data->ID_KATEGORI }}"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletekategori/{{ $data->ID_KATEGOIR }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/deletekategori/{{ $data->ID_KATEGORI }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
               @endforeach
