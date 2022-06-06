@@ -5,6 +5,7 @@ use App\Http\Controllers\entrypembeli;
 use App\Http\Controllers\laporanproduklaris;
 use App\Http\Controllers\laporantransaksi;
 use App\Http\Controllers\portofolioprodukmarketing;
+use App\Http\Controllers\updatedeletekategori;
 use App\Http\Controllers\updatedeleteoperator;
 use App\Http\Controllers\updatedeletepembeli;
 use Illuminate\Support\Facades\Route;
@@ -67,11 +68,7 @@ Route::get('/detailportofolioprodukmarketing',function(){
         "title" => "detailportofolioprodukmarketing"
     ]);
 });
-Route::get('/updatedeletekategori',function(){
-    return view('updatedeletekategori',[
-        "title" => "updatedeletekategori"
-    ]);
-});
+Route::get('/updatedeletekategori',[updatedeletekategori::class,'index']);
 Route::get('/updatedeleteproduk',function(){
     return view('updatedeleteproduk',[
         "title" => "updatedeleteproduk"
@@ -95,11 +92,6 @@ Route::get('/entrykategori',function(){
 Route::get('/updatedeletetransaksi',function(){
     return view('updatedeletetransaksi',[
         "title" => "updatedeletetransaksi"
-    ]);
-});
-Route::get('/updatedeletekategori',function(){
-    return view('updatedeletekategori',[
-        "title" => "updatedeletekategori"
     ]);
 });
 Route::get('/updatekategori',function(){
