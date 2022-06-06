@@ -16,8 +16,6 @@ class updatedeletetransaksi extends Controller
      */
     public function index(Request $request)
     {
-       
-    
         $data = [
             'list' => DB::table('DEAL_TRANSAKSI')->get()
         ];
