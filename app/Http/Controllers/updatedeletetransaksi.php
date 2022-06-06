@@ -66,18 +66,18 @@ class updatedeletetransaksi extends Controller
     }
     public function updatetransaksi(Request $request,$id){
         $request->validate([
-            'TanggalTransaksi' => 'required|regex:^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$',
-            'JumlahTransaksi' =>'required|numeric|gt:0',
+            'Tanggal' => 'required|regex:^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$',
+            'TotalProduk' =>'required|numeric|gt:0',
             'TotalTransaksi' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
             'PembayaranDiterima' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
             'StatusPembayaran' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11'
         ]);
-        $tanggal_transaksi = $request->input('TanggalTransaksi' );
-        $jumlah_transaksi = $request->input('JumlahTransaksi');
+        $tanggal_transaksi = $request->input('Tanggal' );
+        $jumlah_transaksi = $request->input('TotalProduk');
         $total_transaksi = $request->input('TotalTransaksi');
         $pembayaran_diterima = $request->input('PembayaranDiterima');
         $status_pembayaran = $request->input('StatusPembayaran');
-        DB::update('update DEAL_TRANSAKSI set TANGGAL_TRANSAKSI = ?, JUMLAHPRODUK_TRANSAKSI = ?,  TOTAL_TRANSAKSII = ?, PEMBAYARAN_DITERIMA = ?, STATUS_TRANSAKSI = ? where ID_TRANSAKSI= ?', [$tanggal_transaksi,$jumlah_transaksi,$total_transaksi,$pembayaran_diterima,$status_pembayaran,$id]);
+        DB::update('update DEAL_TRANSAKSI set TANGGAL_TRANSAKSI = ?, JUMLAHPRODUK_TRANSAKSI = ?,  TOTAL_TRANSAKSI = ?, PEMBAYARAN_DITERIMA = ?, STATUS_TRANSAKSI = ? where ID_TRANSAKSI= ?', [$tanggal_transaksi,$jumlah_transaksi,$total_transaksi,$pembayaran_diterima,$status_pembayaran,$id]);
         return redirect('updatedeletetransaksi')->with('successupdate','Data Berhasil Diupdate!');
     }
     /**
