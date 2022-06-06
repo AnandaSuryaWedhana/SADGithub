@@ -19,7 +19,7 @@ class updatedeletetransaksi extends Controller
        
     
         $data = [
-            'list' => modelupdatedeletetransaksi::sortable()->paginate(10)
+            'list' => DB::table('DEAL_TRANSAKSI')->get()
         ];
         return view('updatedeletetransaksi',[
             'title'=>'updatedeletetransaksi'

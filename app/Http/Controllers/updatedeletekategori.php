@@ -63,7 +63,7 @@ class updatedeletekategori extends Controller
     }
     public function deletetransaksi($id)
     {
-        DB::delete('delete from KATEGOIR where ID_KATEGORI = ?', [$id]);
+        DB::delete('delete from KATEGORI where ID_KATEGORI = ?', [$id]);
         return redirect('updatedeletekategori')->with('success','Data Terhapus');
     }
     public function updatekategori(Request $request,$id){
