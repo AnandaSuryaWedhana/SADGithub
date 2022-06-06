@@ -4,28 +4,38 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="updatedeletetransaksi.css">
-
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <title>{{ $title }}</title>
   </head>
   <body>
       @include('partials.partialnavbar')
-      <div class="container-fluid mt-5" style="width: 100%">
+    <div class="container mt-5">
+        @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        @if (Session::get('successupdate'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('successupdate') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         <h1 class="text-center">Update & Delete Produk</h1>
-      <div class="table-responsive mt-4">
 
+      <div class="table-responsive mt-4">
         <!--Table-->
-        <table class="table table-striped table-hover ">
+        <table class="table table-striped table-hover " id="tablekategori">
 
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>Number</th>
               <th class="th-lg">Id Produk</th>
+              <th class="th-lg">ID Kategori</th>
               <th class="th-lg">Nama Produk</th>
-              <th class="th-lg">Kategori</th>
               <th class="th-lg">Deskripsi Produk</th>
               <th class="th-lg">Harga Produk</th>
               <th class="th-lg">Link Foto Produk</th>
@@ -38,97 +48,33 @@
 
           <!--Table body-->
           <tbody>
-            <tr class="align-middle text-center">
-                <th scope="row">1</th>
-                <td>PD001</td>
-                <td>Dipan : 180 X 30 X 200</td>
-                <td>Dipan</td>
-                <td> Dipan : 180 X 30 X 200 Menggunakan bahan multipleks</td>
-                <td>5000000</td>
-                <td>-</td>
-                <td>1</td>
+              @foreach ($list as $data)
+              <tr>
+                <th scope="row">{{ $data->ID_PRODUK }}</th>
+                <td>{{ $data->ID_KATEGORI }}</td>
+                <td >{{ $data->NAMA_PRODUK}}</td>
+                <td >{{ $data->DESKRIPSI_PRODUK}}</td>
+                <td >{{ $data->HARGA_PRODUK}}</td>
+                <td >{{ $data->FOTO_PRODUK}}</td>
+                <td >{{ $data->JUMLAHPRODUK_TRANSAKSI}}</td>
                 <td>
-                  <a href="/updateproduk"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deleteproduk"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/editkategori/{{ $data->ID_KATEGORI }}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <a href="/deletekategori/{{ $data->ID_KATEGORI }}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">2</th>
-                <td>PD001</td>
-                <td>Dipan : 180 X 30 X 200</td>
-                <td>Dipan</td>
-                <td> Dipan : 180 X 30 X 200 Menggunakan bahan multipleks</td>
-                <td>5000000</td>
-                <td>-</td>
-                <td>1</td>
-                <td>
-                  <a href="/updateproduk"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deleteproduk"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">3</th>
-                <td>PD001</td>
-                <td>Dipan : 180 X 30 X 200</td>
-                <td>Dipan</td>
-                <td> Dipan : 180 X 30 X 200 Menggunakan bahan multipleks</td>
-                <td>5000000</td>
-                <td>-</td>
-                <td>1</td>
-                <td>
-                  <a href="/updateproduk"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deleteproduk"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">4</th>
-                <td>PD001</td>
-                <td>Dipan : 180 X 30 X 200</td>
-                <td>Dipan</td>
-                <td> Dipan : 180 X 30 X 200 Menggunakan bahan multipleks</td>
-                <td>5000000</td>
-                <td>-</td>
-                <td>1</td>
-                <td>
-                  <a href="/updateproduk"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deleteproduk"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">5</th>
-                <td>PD001</td>
-                <td>Dipan : 180 X 30 X 200</td>
-                <td>Dipan</td>
-                <td> Dipan : 180 X 30 X 200 Menggunakan bahan multipleks</td>
-                <td>5000000</td>
-                <td>-</td>
-                <td>1</td>
-                <td>
-                  <a href="/updateproduk"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deleteproduk"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-            </tr>
-            <tr class="align-middle text-center">
-                <th scope="row">6</th>
-                <td>PD001</td>
-                <td>Dipan : 180 X 30 X 200</td>
-                <td>Dipan</td>
-                <td> Dipan : 180 X 30 X 200 Menggunakan bahan multipleks</td>
-                <td>5000000</td>
-                <td>-</td>
-                <td>1</td>
-                <td>
-                  <a href="/updateproduk"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deleteproduk"><button type="button" class="btn btn-danger">Delete</button></a>
-                </td>
-            </tr>
+              </tr>
+              @endforeach
           </tbody>
 
 
         </table>
-
-
-      </div>
+        {{-- <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div> --}}
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+   <script>
+       $(document).ready( function () {
+        $('#tableproduk').DataTable();
+        } );
+   </script>
   </body>
 </html>

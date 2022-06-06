@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class entryategori extends Controller
+class entrykategori extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,7 +39,7 @@ class entryategori extends Controller
     {
         // validate
         $request->validate([
-            'NamaKategori' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
+            'NamaKategori' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:3',
             'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
         ]);
         $categoryname = $request->input('NamaKategori');
@@ -53,15 +53,15 @@ class entryategori extends Controller
              $substrdata = substr($categoryname,0,1);
              $substrdata = strtoupper($substrdata);
              $count = DB::table('KATEGORI')
-             ->where('ID_KATEGORI', 'like', '%K'. $substrdata .'%')
+             ->where('ID_KATEGORI', 'like', '%KP'.'%')
              ->latest('ID_KATEGORI')
              ->count();
              if($count == 0){
-                 $idcategory = "K". $substrdata . "001";
+                 $idcategory = "KP". "001";
              }
              if($count > 0){
                  $lastid = DB::table('KATEGORI')
-                 ->where('ID_KATEGORI', 'like', '%K'. $substrdata .'%')
+                 ->where('ID_KATEGORI', 'like', '%KP'.'%')
                  ->latest('ID_KATEGORI')
                  ->first('ID_KATEGORI');
                  $arrayvalue = get_object_vars($lastid);
@@ -69,10 +69,10 @@ class entryategori extends Controller
                  $int = (int)$substrid+1;
                  $intlen = strlen((string)$int);
                  if($intlen > 0 and $intlen <9){
-                     $idcategory = "K". $substrdata . "00". (string)$int;
+                     $idcategory = "KP". "00". (string)$int;
                  }
                  if($intlen > 9 and $intlen <100){
-                     $idcategory = "K". $substrdata . "0". (string)$int;
+                     $idcategory = "KP"."0". (string)$int;
                  }
              }
              // insert data
@@ -80,7 +80,7 @@ class entryategori extends Controller
                   'ID_KATEGORI' => $idcategory,
                   'NAMA_KATEGORI' => $request->input('NamaKategori'),
                   'DESKRIPSI_KATEGORI' => $request->input('DeskripsiKategori'),
-                  'DEL' => 0
+                  'DEL_KATEGORI' => 0
               ]);
             return back()->with('success','Kategori Berhasil Dimasukkan');
         }

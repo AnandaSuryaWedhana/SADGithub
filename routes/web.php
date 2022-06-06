@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
+use App\Http\Controllers\entrykategori;
 use App\Http\Controllers\laporanproduklaris;
 use App\Http\Controllers\laporantransaksi;
 use App\Http\Controllers\portofolioprodukmarketing;
@@ -9,6 +10,7 @@ use App\Http\Controllers\updatedeletekategori;
 use App\Http\Controllers\updatedeleteoperator;
 use App\Http\Controllers\updatedeletepembeli;
 use App\Http\Controllers\updatedeletetransaksi;
+use App\Http\Controllers\updatedeleteproduk;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +31,8 @@ Route::get('/', function () {
 });
 Route::get('entrypembeli',[entrypembeli::class,'index']);
 Route::post('/entrypembeli',[entrypembeli::class,'store']);
+Route::get('entrykategori',[entrykategori::class,'index']);
+Route::post('/entrykategori',[entrykategori::class,'store']);
 Route::get('/entryoperator',[entryoperator::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/editpembeli/{id}',[updatedeletepembeli::class,'show']);
@@ -76,11 +80,15 @@ Route::get('/detailportofolioprodukmarketing',function(){
     ]);
 });
 Route::get('/updatedeletekategori',[updatedeletekategori::class,'index']);
-Route::get('/updatedeleteproduk',function(){
-    return view('updatedeleteproduk',[
-        "title" => "updatedeleteproduk"
-    ]);
-});
+Route::get('/editkategori/{id}',[updatedeletekategori::class,'show']);
+Route::get('/deletekategori/{id}',[updatedeletekategori::class,'deletekategori']);
+Route::post('/updatekategori/{id}',[updatedeletekategori::class,'updatekategori']);
+Route::get('/updatedeleteproduk',[updatedeleteproduk::class,'index']);
+// Route::get('/updatedeleteproduk',function(){
+//     return view('updatedeleteproduk',[
+//         "title" => "updatedeleteproduk"
+//     ]);
+// });
 Route::get('/entryproduk',function(){
     return view('entryproduk',[
         "title" => "entryproduk"

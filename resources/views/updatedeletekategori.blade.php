@@ -34,7 +34,7 @@
           <thead>
             <tr>
               <th>ID Kategori</th>
-              <th class="th-lg">NAMA KATEGOIR</th>
+              <th class="th-lg">NAMA KATEGORI</th>
               <th class="th-lg">DESKRIPSI KATEGORI</th>
               <th class="th-lg align-middle text-center">Action</th>
             </tr>
