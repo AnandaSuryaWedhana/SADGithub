@@ -28,16 +28,16 @@
         <h1 class="text-center">Update & Delete Transaksi</h1>
       <div class="table-responsive mt-4">
 
-        
+
         <!--Table-->
         <table class="table table-striped table-hover ">
 
           <!--Table head-->
           <thead>
             <tr class="text-center">
-              <th>@sortablelink('ID_TRANSAKSI', 'ID TRANSAKSI')</th>
+              <th>ID TRANSAKSI'</th>
               <th class="th-lg">ID Pembeli</th>
-              <th class="th-lg">@sortablelink('TANGGAL_TRANSAKSI', 'TANGGAL TRANSAKSI')</th>
+              <th class="th-lg">TANGGAL TRANSAKSI</th>
               <th class="th-lg">jumlah produk Transaksi</th>
               <th class="th-lg">Total Transaksi</th>
               <th class="th-lg">Pembayaran Diterima</th>
@@ -70,7 +70,6 @@
 
         </table>
 
-        <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div>
       </div>
     </div>
   </body>
