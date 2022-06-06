@@ -3,6 +3,7 @@
 use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
 use App\Http\Controllers\entrykategori;
+use App\Http\Controllers\entrytransaksi;
 use App\Http\Controllers\laporanproduklaris;
 use App\Http\Controllers\laporantransaksi;
 use App\Http\Controllers\portofolioprodukmarketing;
@@ -34,6 +35,8 @@ Route::post('/entrypembeli',[entrypembeli::class,'store']);
 Route::get('entrykategori',[entrykategori::class,'index']);
 Route::post('/entrykategori',[entrykategori::class,'store']);
 Route::get('/entryoperator',[entryoperator::class,'index']);
+Route::post('/entryoperator',[entryoperator::class,'store']);
+Route::get('/entrytransaksi',[entrytransaksi::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/editpembeli/{id}',[updatedeletepembeli::class,'show']);
 Route::get('/deletepembeli/{id}',[updatedeletepembeli::class,'deletepembeli']);

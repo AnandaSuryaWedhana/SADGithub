@@ -55,10 +55,10 @@ class updatedeletekategori extends Controller
      */
     public function show($id)
     {
-        $transaksi = DB::select('select * from KATEGORI where ID_KATEGORI = ?', [$id]);
+        $kategori = DB::select('select * from KATEGORI where ID_KATEGORI = ?', [$id]);
         return view('updatekategori',[
             'title'=>'updatekategori',
-            'data'=>$transaksi
+            'data'=>$kategori
         ]);
     }
     public function deletetransaksi($id)
