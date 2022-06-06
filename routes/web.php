@@ -36,7 +36,7 @@ Route::get('/deletepembeli/{id}',[updatedeletepembeli::class,'deletepembeli']);
 Route::post('/updatepembeli/{id}',[updatedeletepembeli::class,'updatepembeli']);
 Route::get('/edittransaksi/{id}',[updatedeletetransaksi::class,'show']);
 Route::get('/deletetransaksi/{id}',[updatedeletetransaksi::class,'deletetransaksi']);
-Route::post('/updatetransaKSi/{id}',[updatedeletepembeli::class,'updatetransaksi']);
+Route::post('/updatetransaksi/{id}',[updatedeletetransaksi::class,'updatetransaksi']);
 Route::get('/updatedeletetransaksi',[updatedeletetransaksi::class,'index']);
 // Route::get('/updatedeletetransaksi', function () {
 //     return view('updatedeletetransaksi',[
