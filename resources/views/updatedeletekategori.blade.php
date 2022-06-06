@@ -28,7 +28,7 @@
 
       <div class="table-responsive mt-4">
         <!--Table-->
-        <table class="table table-striped table-hover " id="tablepembeli">
+        <table class="table table-striped table-hover " id="tablekategori">
 
           <!--Table head-->
           <thead>
