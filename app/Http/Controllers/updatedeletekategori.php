@@ -16,10 +16,10 @@ class updatedeletekategori extends Controller
      */
     public function index(Request $request)
     {
-       
-    
+
+
         $data = [
-            'list' => modelupdatedeletekategori::sortable()->paginate(10)
+            'list' => DB::table('KATEGORI')->get()
         ];
         return view('updatedeletekategori',[
             'title'=>'updatedeletekategori'
