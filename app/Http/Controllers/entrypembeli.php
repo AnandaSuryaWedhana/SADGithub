@@ -67,7 +67,7 @@ class entrypembeli extends Controller
                  ->latest('ID_PEMBELI')
                  ->first('ID_PEMBELI');
                  $arrayvalue = get_object_vars($lastid);
-                 $substrid = substr($arrayvalue['ID_PEMBELI'], -1);
+                 $substrid = substr($arrayvalue['ID_PEMBELI'], 2);
                  $int = (int)$substrid+1;
                  $intlen = strlen((string)$int);
                  if($intlen > 0 and $intlen <9){
@@ -89,7 +89,7 @@ class entrypembeli extends Controller
             return back()->with('success','Pembeli Berhasil Dimasukkan');
         }
          else{
-             return back()->with('fail','Pembeli Sudah Tersedia');
+            return back()->with('fail','Pembeli Sudah Tersedia');
          }
     }
 
