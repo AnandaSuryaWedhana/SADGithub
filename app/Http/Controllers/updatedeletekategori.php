@@ -58,7 +58,7 @@ class updatedeletekategori extends Controller
         $transaksi = DB::select('select * from KATEGORI where ID_KATEGORI = ?', [$id]);
         return view('updatekategori',[
             'title'=>'updatekategori',
-            'data'=>$kategori
+            'data'=>$transaksi
         ]);
     }
     public function deletetransaksi($id)
