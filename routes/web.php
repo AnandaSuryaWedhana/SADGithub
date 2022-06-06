@@ -8,6 +8,7 @@ use App\Http\Controllers\portofolioprodukmarketing;
 use App\Http\Controllers\updatedeletekategori;
 use App\Http\Controllers\updatedeleteoperator;
 use App\Http\Controllers\updatedeletepembeli;
+use App\Http\Controllers\updatedeletetransaksi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,12 @@ Route::get('/edittransaksi/{id}',[updatedeletetransaksi::class,'show']);
 Route::get('/deletetransaksi/{id}',[updatedeletetransaksi::class,'deletetransaksi']);
 Route::post('/updatetransaski/{id}',[updatedeletepembeli::class,'updatetransaksi']);
 Route::get('/updatedeletetransaksi',[updatedeletetransaksi::class,'index']);
+// Route::get('/updatedeletetransaksi', function () {
+//     return view('updatedeletetransaksi',[
+//         "title" => "updatedeletetransaksi"
+//     ]);
+// });
+// Route::get('/updatedeletetransaksi',[upddeltransaksi::class,'index']);
 Route::get('/header', function () {
     return view('header',[
         "title" => "header"
@@ -87,11 +94,6 @@ Route::get('/entrytransaksi',function(){
 Route::get('/entrykategori',function(){
     return view('entrykategori',[
         "title" => "entrykategori"
-    ]);
-});
-Route::get('/updatedeletetransaksi',function(){
-    return view('updatedeletetransaksi',[
-        "title" => "updatedeletetransaksi"
     ]);
 });
 Route::get('/updatekategori',function(){
