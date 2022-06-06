@@ -65,7 +65,7 @@ class entryoperator extends Controller
                 ->latest('ID_USER')
                 ->first('ID_USER');
                 $arrayvalue = get_object_vars($lastid);
-                $substrid = substr($arrayvalue['ID_USER'], -1);
+                $substrid = substr($arrayvalue['ID_USER'], 2);
                 $int = (int)$substrid+1;
                 $intlen = strlen((string)$int);
                 if($intlen > 0 and $intlen <9){
