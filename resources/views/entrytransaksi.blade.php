@@ -42,7 +42,7 @@
             <tr>
               <th>ID PEMBELI</th>
               <th class="th-lg">NAMA PEMBELI</th>
-              <th class="th-lg align-middle text-center">Action</th>
+              <th class="th-lg">Action</th>
             </tr>
           </thead>
           <!--Table head-->

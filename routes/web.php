@@ -37,7 +37,6 @@ Route::post('/entrykategori',[entrykategori::class,'store']);
 Route::get('/entryoperator',[entryoperator::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/entrytransaksi',[entrytransaksi::class,'index']);
-Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/editpembeli/{id}',[updatedeletepembeli::class,'show']);
 Route::get('/deletepembeli/{id}',[updatedeletepembeli::class,'deletepembeli']);
 Route::post('/updatepembeli/{id}',[updatedeletepembeli::class,'updatepembeli']);
@@ -97,21 +96,11 @@ Route::get('/entryproduk',function(){
         "title" => "entryproduk"
     ]);
 });
-Route::get('/entrytransaksi',function(){
-    return view('entrytransaksi',[
-        "title" => "entrytransaksi"
-    ]);
-});
-Route::get('/entrykategori',function(){
-    return view('entrykategori',[
-        "title" => "entrykategori"
-    ]);
-});
-Route::get('/updatekategori',function(){
-    return view('updatekategori',[
-        "title" => "updatekategori"
-    ]);
-});
+// Route::get('/entrytransaksi',function(){
+//     return view('entrytransaksi',[
+//         "title" => "entrytransaksi"
+//     ]);
+// });
 Route::get('/updateproduk',function(){
     return view('updateproduk',[
         "title" => "updateproduk"
