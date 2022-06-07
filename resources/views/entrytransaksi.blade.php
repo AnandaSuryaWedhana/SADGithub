@@ -1,83 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/entrytransaksi.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    @include('partials.partialnavbar')
-    <div class="container mt-4">
-        <div class="title">Entry Transaksi</div>
-        <form action="#">
-            <div class="pembelian">
-                 <div class="input-box">
-                     <span class="details">Id Transaksi</span>
-                     <input type="text" placeholder="auto-fill" required>
-                 </div>
-                 <div class="input-box">
-                    <span class="details">Id Pembeli</span>
-                    <input type="text" placeholder="Masukkan Nama Pembeli" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Tanggal Transaksi</span>
-                    <input type="date" placeholder="" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Produk</span>
-                    <input type="text" placeholder="Masukkan Nama Produk" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Deskripsi Produk</span>
-                    <input type="" placeholder="Masukkan Deskripsi Produk" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Jumlah Produk</span>
-                    <input type="number" placeholder="Masukkan Jumlah Produk" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Harga</span>
-                    <input type="text" placeholder="Masukkan Harga Produk" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Jumlah Total Produk</span>
-                    <input type="text" placeholder="Masukkan Jumlah Total Produk" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Total Transaksi</span>
-                    <input type="text" placeholder="Masukkan Total Transaksi" required>
-                </div>
-                <div class="pembayaran-details">
-                    <span class="status-pembayaran">Status Pembayaran</span>
-                     <div class="category">
-                        <div class="label">
-                            Status Pembayaran
-                         </div>
-                         <select>
-                            <option>Sudah Lunas</option>
-                            <option>Belum Lunas</option>
-
-                         </select>
-                        <!-- <label for="">
-                            <span class="dot one"></span>
-                            <span class="status-sekarang">Lunas</span>
-                        </label>
-                        <label for="">
-                            <span class="dot one"></span>
-                            <span class="status-sekarang">Belum Lunas</span>
-                        </label>  -->
-                    </div>
-                </div>
-
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <title>{{ $title }}</title>
+  </head>
+  <body>
+      @include('partials.partialnavbar')
+    <div class="container mt-5">
+        @if (Session::get('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        @endif
+        @if (Session::get('successupdate'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ Session::get('successupdate') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <div class="button">
-                <input type="submit" value="Submit">
+        @endif
+        <h1 class="text-center">Entry Transaksi</h1>
+        {{-- <form method="get">
+            <div class="form-group row mb-4 mt-4">
+              <label for="exampleDataList" class="col-sm-2 col-form-label">Cari Data :</label>
+              <div class="col-sm-10">
+                <input class="form-control" type="text" name="searchside" autofocus="true" list="datalistOptions" id="exampleDataList" placeholder="Type to search..." value="{{ $inputdata }}">
+              </div>
             </div>
-        </form>
+          </form> --}}
+      <div class="table-responsive mt-4">
+        <!--Table-->
+        <table class="table table-striped table-hover " id="tablepembeli">
+
+          <!--Table head-->
+          <thead>
+            <tr>
+              <th>ID PEMBELI</th>
+              <th class="th-lg">NAMA PEMBELI</th>
+              <th class="th-lg align-middle text-center">Action</th>
+            </tr>
+          </thead>
+          <!--Table head-->
+
+          <!--Table body-->
+          <tbody>
+              @foreach ($list as $data)
+              <tr>
+                <th scope="row">{{ $data->ID_PEMBELI }}</th>
+                <td>{{ $data->NAMA_PEMBELI }}</td>
+                <td>
+                  <a href="/entrytransaksi/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">Select</button></a>
+                </td>
+              </tr>
+              @endforeach
+          </tbody>
+
+
+        </table>
+        {{-- <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div> --}}
     </div>
-</body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+   <script>
+       $(document).ready( function () {
+        $('#tablepembeli').DataTable();
+        } );
+   </script>
+  </body>
 </html>

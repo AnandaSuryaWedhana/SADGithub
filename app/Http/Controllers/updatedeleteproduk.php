@@ -55,7 +55,7 @@ class updatedeleteproduk extends Controller
      */
     public function show($id)
     {
-        $transaksi = DB::select('select * from PRODUK where ID_PRODUK= ?', [$id]);
+        $produk = DB::select('select * from PRODUK where ID_PRODUK= ?', [$id]);
         return view('updateproduk',[
             'title'=>'updateproduk',
             'data'=>$produk
@@ -63,12 +63,12 @@ class updatedeleteproduk extends Controller
     }
     public function deleteproduk($id)
     {
-        DB::delete('delete from KATEGORI where ID_KATEGORI = ?', [$id]);
-        return redirect('updatedeletekategori')->with('success','Data Terhapus');
+        DB::delete('delete from PRODUK where ID_PRODUK = ?', [$id]);
+        return redirect('updatedeleteproduk')->with('success','Data Terhapus');
     }
-    public function updatekategori(Request $request,$id){
+    public function updateproduk(Request $request,$id){
         $request->validate([
-            'NamaKategori' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
+            'NamaProduk' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
             'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
         ]);
         $nama_kategori = $request->input('NamaKategori');
