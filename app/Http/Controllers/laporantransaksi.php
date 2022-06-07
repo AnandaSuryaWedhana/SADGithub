@@ -16,14 +16,19 @@ class laporantransaksi extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-         $data = [
-             'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->get()
-            ];
-        // $data = modelpembeli::where('ID_PEMBELI','CA0001');
-        // $data->transaksi()->get();
-        //     dd('$data');
+        $bulantransaksi = $request->input('bulan');
+        if(!empty($bulantransaksi)){
+            $data = [
+                'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->where('TANGGAL_TRANSAKSI','LIKE','_____'. $bulantransaksi .'%')->get()
+               ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->get()
+               ];
+        }
         return view('laporantransaksi',[
             'title' => 'laporantransaksi'
         ],$data);
