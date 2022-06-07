@@ -14,11 +14,12 @@ class entrytransaksi extends Controller
      */
     public function index()
     {
-        $pilihpembeli = DB::select('select * from PEMBELI where ID_PEMBELI= ?', [$id]);
+        $data = [
+            'list' => DB::table('PEMBELI')->get()
+        ];
         return view('entrytransaksi',[
-            'title'=>'entrytransaksi',
-            'data'=>$pilihpembeli
-        ]);
+            'title'=>'entrytransaksi'
+        ],$data);
     }
 
     /**
