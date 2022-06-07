@@ -65,7 +65,11 @@ class updatedeleteoperator extends Controller
      */
     public function show($id)
     {
-        $user = DB::select('select * from USER where ID_USER = ?', [$id]);
+        // $user = DB::select('select * from USER where ID_USER = ?', [$id]);
+
+        $user = DB::table('USER')->where('ID_USER','=',$id)->first();
+        // $arrayvalue = get_object_vars($user);
+        // dd($arrayvalue['ROLE']);
         return view('updateoperator',[
             'title'=>'updateoperator',
             'data'=>$user
