@@ -27,12 +27,11 @@
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Role</label>
-          <select class="form-select" aria-label="Default select example">
+          <select class="form-select" name="role" aria-label="Default select example">
             <option value="{{ $data->ROLE }}" disabled selected>{{ $data->ROLE }}</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Pemilik">Accountant</option>
-            <option value="Admin">Admin</option>
-            <option></option>
+            @foreach ($role as $d)
+                <option value="{{ $d->ROLE }}">{{ $d->ROLE }}</option>
+            @endforeach
           </select>
         </div>
         <div class="col-12 text-center">

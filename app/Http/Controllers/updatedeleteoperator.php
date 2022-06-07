@@ -66,13 +66,14 @@ class updatedeleteoperator extends Controller
     public function show($id)
     {
         // $user = DB::select('select * from USER where ID_USER = ?', [$id]);
-
         $user = DB::table('USER')->where('ID_USER','=',$id)->first();
-        // $arrayvalue = get_object_vars($user);
-        // dd($arrayvalue['ROLE']);
+        $arrayvalue = get_object_vars($user);
+        $idrole = $arrayvalue['ROLE'];
+        $role = DB::table('USER')->select('ROLE')->groupBy('ROLE')->where('ROLE','!=',$idrole)->get();
         return view('updateoperator',[
             'title'=>'updateoperator',
-            'data'=>$user
+            'data'=>$user,
+            'role'=>$role
         ]);
     }
     public function deleteoperator($id){
@@ -86,7 +87,8 @@ class updatedeleteoperator extends Controller
         ]);
         $user_username = $request->input('Username');
         $user_password = $request->input('Password');
-        DB::update('update USER set USERNAME = ?, PASSWORD = ? where ID_USER = ?', [$user_username,$user_password,$id]);
+        $user_role = $request->input('role');
+        DB::update('update USER set USERNAME = ?, PASSWORD = ?, ROLE = ? where ID_USER = ?', [$user_username,$user_password,$user_role,$id]);
         return redirect('updatedeleteoperator')->with('successupdate','Data Berhasil Diupdate!');
     }
     /**

@@ -14,6 +14,12 @@
     @include('partials.partialnavbar')
     <div class="container mt-5">
         <h1 class="text-center mb-4">Laporan Transaksi</h1>
+        <select class="form-select mt-4 mb-4" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
         {{-- <div class="p-3 mb-2 bg-secondary text-white rounded">
           <form action="" method="post">
             <label for="exampleFormControlInput1" class="form-label">Pilih Tanggal :</label>
