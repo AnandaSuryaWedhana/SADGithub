@@ -44,6 +44,10 @@ Route::get('/edittransaksi/{id}',[updatedeletetransaksi::class,'show']);
 Route::get('/deletetransaksi/{id}',[updatedeletetransaksi::class,'deletetransaksi']);
 Route::post('/updatetransaksi/{id}',[updatedeletetransaksi::class,'updatetransaksi']);
 Route::get('/updatedeletetransaksi',[updatedeletetransaksi::class,'index']);
+Route::get('/editproduk/{id}',[updatedeleteproduk::class,'show']);
+Route::get('/deleteproduk/{id}',[updatedeleteproduk::class,'deleteproduk']);
+Route::post('/updateproduk/{id}',[updatedeleteproduk::class,'updateproduk']);
+Route::get('/updatedeleteproduk',[updatedeleteproduk::class,'index']);
 // Route::get('/updatedeletetransaksi', function () {
 //     return view('updatedeletetransaksi',[
 //         "title" => "updatedeletetransaksi"
@@ -85,34 +89,39 @@ Route::get('/updatedeletekategori',[updatedeletekategori::class,'index']);
 Route::get('/editkategori/{id}',[updatedeletekategori::class,'show']);
 Route::get('/deletekategori/{id}',[updatedeletekategori::class,'deletekategori']);
 Route::post('/updatekategori/{id}',[updatedeletekategori::class,'updatekategori']);
-Route::get('/updatedeleteproduk',[updatedeleteproduk::class,'index']);
+// Route::post('/halamantransaksiproduk/{id}',[halamantransaksiproduk::class,'show']);
 // Route::get('/updatedeleteproduk',function(){
 //     return view('updatedeleteproduk',[
 //         "title" => "updatedeleteproduk"
 //     ]);
 // });
-Route::get('/entryproduk',function(){
-    return view('entryproduk',[
-        "title" => "entryproduk"
-    ]);
-});
+// Route::get('/entryproduk',function(){
+//     return view('entryproduk',[
+//         "title" => "entryproduk"
+//     ]);
+// });
 // Route::get('/entrytransaksi',function(){
 //     return view('entrytransaksi',[
 //         "title" => "entrytransaksi"
 //     ]);
 // });
-Route::get('/updateproduk',function(){
-    return view('updateproduk',[
-        "title" => "updateproduk"
-    ]);
-});
-Route::get('/updatetransaksi',function(){
-    return view('updatetransaksi',[
-        "title" => "updatetransaksi"
-    ]);
-});
+// Route::get('/updateproduk',function(){
+//     return view('updateproduk',[
+//         "title" => "updateproduk"
+//     ]);
+// });
+// Route::get('/updatetransaksi',function(){
+//     return view('updatetransaksi',[
+//         "title" => "updatetransaksi"
+//     ]);
+// });
 Route::get('/login',function(){
     return view('login',[
         "title" => "login"
     ]);
 });
+ Route::get('/halamantransaksiproduk',function(){
+     return view('halamantransaksiproduk',[
+        "title" => "halamantransaksiproduk"
+    ]);
+ });

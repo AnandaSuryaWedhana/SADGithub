@@ -67,14 +67,22 @@ class updatedeleteproduk extends Controller
         return redirect('updatedeleteproduk')->with('success','Data Terhapus');
     }
     public function updateproduk(Request $request,$id){
-        $request->validate([
-            'NamaProduk' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
-            'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
+        // $request->validate([
+        //     'NamaProduk' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
+        //     'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
+        // ]);
+        $arealist = DB::select('select ID_KATEGORI, NAMA_KATEGORI FROM KATEGORI')->get();
+        return view('arealist',[
+            'arealist'=>$arealist
         ]);
-        $nama_kategori = $request->input('NamaKategori');
-        $deskripsi_kategori = $request->input('DeskripsiKategori');
-        DB::update('update KATEGORI set NAMA_KATEGORI = ?, DESKRIPSI_KATEGORI = ?  where ID_TRANSAKSI= ?', [$nama_kategori,$deskripsi_kategori,$id]);
-        return redirect('updatedeletekategori')->with('successupdate','Data Berhasil Diupdate!');
+        $id_kategori = $request->input('Kategori');
+        $nama_produk = $request->input('NamaProduk');
+        $deskripsi_produk = $request->input('DeskripsiProduk');
+        $harga_produk = $request->input('HargaProduk');
+        $foto_produk = $request->input('FotoProduk');
+        $jumlah_produk = $request->input('JumlahProduk');
+        DB::update('update PRODUK set ID_KATEGORI = ?, NAMA_PRODUK = ?, DESKRIPSI_PRODUK = ?, HARGA_PRODUK = ?, FOTO_PRODUK = ?, JUMLAHPRODUK_TRANSAKSI = ? where ID_PRODUK= ?', [$id_kategori,$nama_produk,$deskripsi_produk,$harga_produk,$foto_produk,$jumlah_produk,$id]);
+        return redirect('updatedeleteproduk')->with('successupdate','Data Berhasil Diupdate!');
     }
     /**
      * Show the form for editing the specified resource.

@@ -58,8 +58,8 @@
                 <td >{{ $data->FOTO_PRODUK}}</td>
                 <td >{{ $data->JUMLAHPRODUK_TRANSAKSI}}</td>
                 <td>
-                  <a href="/editkategori/{{ $data->ID_KATEGORI }}"><button type="button" class="btn btn-info">Edit</button></a>
-                  <a href="/deletekategori/{{ $data->ID_KATEGORI }}"><button type="button" class="btn btn-danger">Delete</button></a>
+                  <a href="/editproduk/{{ $data->ID_PRODUK}}"><button type="button" class="btn btn-info">Edit</button></a>
+                  <a href="/deleteproduk/{{ $data->ID_PRODUK}}"><button type="button" class="btn btn-danger">Delete</button></a>
                 </td>
               </tr>
               @endforeach
