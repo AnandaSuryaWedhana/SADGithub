@@ -14,21 +14,75 @@
     @include('partials.partialnavbar')
     <div class="container mt-5">
         <h1 class="text-center mb-4">Laporan Transaksi</h1>
-        <select class="form-select mt-4 mb-4" name="bulan" aria-label="Default select example">
-            <option selected>Pilih Bulan Transaksi</option>
-            <option value="01">Januari</option>
-            <option value="02">Februari</option>
-            <option value="03">Maret</option>
-            <option value="04">April</option>
-            <option value="05">Mei</option>
-            <option value="06">Juni</option>
-            <option value="07">Juli</option>
-            <option value="08">Agustus</option>
-            <option value="09">September</option>
-            <option value="10">Oktober</option>
-            <option value="11">November</option>
-            <option value="12">Desember</option>
-          </select>
+        <form action="filterdata" method="get">
+            <div class="containerfilter mt-4 mb-3 position-relative mx-auto" style="display: flex; width:70%">
+                <select class="form-select" name="bulan" aria-label="Default select example" style="width: 90%">
+                    <option selected="">Pilih Bulan Transaksi</option>
+                    @if ($bulantransaksi == "01")
+                    <option selected= "selected" value="01">Januari</option>
+                    @else
+                    <option value="01">Januari</option>
+                    @endif
+                    @if ($bulantransaksi == "02")
+                    <option selected= "selected" value="02">Februari</option>
+                    @else
+                    <option value="02">Februari</option>
+                    @endif
+                    @if ($bulantransaksi == "03")
+                    <option selected= "selected" value="03">Maret</option>
+                    @else
+                    <option value="03">Maret</option>
+                    @endif
+                    @if ($bulantransaksi == "04")
+                    <option selected= "selected" value="04">April</option>
+                    @else
+                    <option value="04">April</option>
+                    @endif
+                    @if ($bulantransaksi == "05")
+                    <option selected= "selected" value="05">Mei</option>
+                    @else
+                    <option value="05">Mei</option>
+                    @endif
+                    @if ($bulantransaksi == "06")
+                    <option selected= "selected" value="06">Juni</option>
+                    @else
+                    <option value="06">Juni</option>
+                    @endif
+                    @if ($bulantransaksi == "07")
+                    <option selected= "selected" value="07">Juli</option>
+                    @else
+                    <option value="07">Juli</option>
+                    @endif
+                    @if ($bulantransaksi == "08")
+                    <option selected= "selected" value="08">Agustus</option>
+                    @else
+                    <option value="08">Agustus</option>
+                    @endif
+                    @if ($bulantransaksi == "09")
+                    <option selected= "selected" value="09">September</option>
+                    @else
+                    <option value="09">September</option>
+                    @endif
+                    @if ($bulantransaksi == "10")
+                    <option selected= "selected" value="10">Oktober</option>
+                    @else
+                    <option value="10">Oktober</option>
+                    @endif
+                    @if ($bulantransaksi == "11")
+                    <option selected= "selected" value="11">November</option>
+                    @else
+                    <option value="11">November</option>
+                    @endif
+                    @if ($bulantransaksi == "12")
+                    <option selected= "selected" value="12">Desember</option>
+                    @else
+                    <option value="12">Desember</option>
+                    @endif
+                </select>
+                <button type="submit" class="btn btn-primary position-absolute top-50 end-0 translate-middle-y">Submit</button>
+            </div>
+        </form>
+
         {{-- <div class="p-3 mb-2 bg-secondary text-white rounded">
           <form action="" method="post">
             <label for="exampleFormControlInput1" class="form-label">Pilih Tanggal :</label>
