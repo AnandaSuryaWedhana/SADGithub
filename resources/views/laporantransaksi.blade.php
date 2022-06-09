@@ -15,7 +15,7 @@
     <div class="container mt-5">
         <h1 class="text-center mb-4">Laporan Transaksi</h1>
         <form action="filterdata" method="get">
-            <div class="containerfilter mt-4 mb-3 position-relative mx-auto" style="display: flex; width:70%">
+            <div class="containerfilter mt-4 mb-3 position-relative" style="display: flex; width:70%">
                 <select class="form-select" name="bulan" aria-label="Default select example" style="width: 90%">
                     <option selected="">Pilih Bulan Transaksi</option>
                     @if ($bulantransaksi == "01")
