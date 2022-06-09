@@ -116,3 +116,4 @@ Route::get('/login',function(){
         "title" => "login"
     ]);
 });
+Route::get('filterdata',[laporantransaksi::class,'filterdata']);
