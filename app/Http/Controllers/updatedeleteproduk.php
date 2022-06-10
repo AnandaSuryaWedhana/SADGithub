@@ -71,10 +71,7 @@ class updatedeleteproduk extends Controller
         //     'NamaProduk' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
         //     'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
         // ]);
-        $arealist = DB::select('select ID_KATEGORI, NAMA_KATEGORI FROM KATEGORI')->get();
-        return view('arealist',[
-            'arealist'=>$arealist
-        ]);
+        
         $id_kategori = $request->input('Kategori');
         $nama_produk = $request->input('NamaProduk');
         $deskripsi_produk = $request->input('DeskripsiProduk');

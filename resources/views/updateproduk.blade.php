@@ -24,10 +24,16 @@
         @csrf
         <div class="col-12" style="padding-top: 10px">
             <label for="inputKategori" class="form-label">Nama Kategori : </label>
-            <select name="Kategori" id="inputKategori">
-                @foreach($arealist as $item)
-                    <option value="{{$item->ID_KATEGORI}}">{{$item->NAMA_KATEGORI}}</option>
-                @endforeach
+            <select name="Kategori" id="inputKategori" value="{{ $data[0]->ID_KATEGORI}}">
+              <option value="KC001">CERMIN</option>
+              <option value="KP001">KITCHEN SET</option>
+              <option value="KP002">LEMARI</option>
+              <option value="KP003">DIPAN</option>
+              <option value="KP004">NAKAS</option>
+              <option value="KP005">DISPLAY TV</option> 
+              <option value="KP006">MEJA RIAS</option>
+              <option value="KP007">MEJA BELAJAR</option>
+              <option value="KP008">RAK SEPATU</option>
             </select>
             <span style="color: red">@error('NamaKategori'){{ $message }}@enderror</span>
         </div>
@@ -53,7 +59,7 @@
       </div>
       <div class="col-12" style="padding-top: 10px">
         <label for="inputJumlahProduk" class="form-label">Jumlah Produk Transaksi : </label>
-        <input type="number" name="JumlahProduk" class="form-control" id="inputJumlahProduk" placeholder="" value="{{ $data[0]->NJUMLAHPRODUK_TRANSAKSI}}" />
+        <input type="number" name="JumlahProduk" class="form-control" id="inputJumlahProduk" placeholder="" value="{{ $data[0]->JUMLAHPRODUK_TRANSAKSI}}" />
         <span style="color: red">@error('JumlahProduk'){{ $message }}@enderror</span>
       </div>
       <div class="col-12 text-center">
