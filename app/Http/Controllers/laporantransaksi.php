@@ -18,22 +18,32 @@ class laporantransaksi extends Controller
      */
     public function index(Request $request)
     {
-        $bulantransaksi = $request->input('bulan');
-        if(!empty($bulantransaksi)){
-            $data = [
-                'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->where('TANGGAL_TRANSAKSI','LIKE','_____'. $bulantransaksi .'%')->get()
-               ];
-        }
-        else{
+        // $bulantransaksi = $request->input('bulan');
+        // if(!empty($bulantransaksi)){
+        //     $data = [
+        //         'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->where('TANGGAL_TRANSAKSI','LIKE','_____'. $bulantransaksi .'%')->get()
+        //        ];
+        // }
+        // else{
             $data = [
                 'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->get()
                ];
-        }
+        // }
         return view('laporantransaksi',[
-            'title' => 'laporantransaksi'
+            'title' => 'laporantransaksi',
+            'bulantransaksi'=>''
         ],$data);
     }
-
+    public function filterdata(Request $request){
+        $bulantransaksi = $request->input('bulan');
+        $data = [
+                     'list' => DB::table('DEAL_TRANSAKSI')->join('PEMBELI','DEAL_TRANSAKSI.ID_PEMBELI','=','PEMBELI.ID_PEMBELI')->select('ID_TRANSAKSI','NAMA_PEMBELI','PEMBELI.ID_PEMBELI','TANGGAL_TRANSAKSI','DEAL_TRANSAKSI.JUMLAHPRODUK_TRANSAKSI','TOTAL_TRANSAKSI','PEMBAYARAN_DITERIMA','STATUS_DEALTRANSAKSI')->where('TANGGAL_TRANSAKSI','LIKE','_____'. $bulantransaksi .'%')->get()
+                ];
+        return view('laporantransaksi',[
+            'title' => 'laporantransaksi',
+            'bulantransaksi' => $bulantransaksi,
+        ],$data);
+    }
     /**
      * Show the form for creating a new resource.
      *

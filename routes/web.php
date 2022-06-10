@@ -3,6 +3,7 @@
 use App\Http\Controllers\entryoperator;
 use App\Http\Controllers\entrypembeli;
 use App\Http\Controllers\entrykategori;
+use App\Http\Controllers\entryproduk;
 use App\Http\Controllers\entrytransaksi;
 use App\Http\Controllers\laporanproduklaris;
 use App\Http\Controllers\laporantransaksi;
@@ -34,6 +35,8 @@ Route::get('entrypembeli',[entrypembeli::class,'index']);
 Route::post('/entrypembeli',[entrypembeli::class,'store']);
 Route::get('entrykategori',[entrykategori::class,'index']);
 Route::post('/entrykategori',[entrykategori::class,'store']);
+Route::get('entryproduk',[entryproduk::class,'index']);
+Route::post('/entryproduk',[entryproduk::class,'store']);
 Route::get('/entryoperator',[entryoperator::class,'index']);
 Route::post('/entryoperator',[entryoperator::class,'store']);
 Route::get('/entrytransaksi',[entrytransaksi::class,'index']);
@@ -120,8 +123,4 @@ Route::get('/login',function(){
         "title" => "login"
     ]);
 });
- Route::get('/halamantransaksiproduk',function(){
-     return view('halamantransaksiproduk',[
-        "title" => "halamantransaksiproduk"
-    ]);
- });
+Route::get('filterdata',[laporantransaksi::class,'filterdata']);
