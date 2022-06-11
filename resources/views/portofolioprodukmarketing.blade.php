@@ -16,6 +16,11 @@
     @include('partials.partialnavbarmarketing')
     <div class="container mt-4">
         <h1 class="text-center">{{ $name }}</h1>
+        <form method="get">
+            <div class="separatediv" style="display: flex; width:100%">
+                <input class="form-control" name="cariproduk" type="text" placeholder="Default input" aria-label="default input example">
+            </div>
+        </form>
     </div>
     <div class="container1 mt-4 mb-4">
         <div class="container row" style="width: 90%; margin:auto">
