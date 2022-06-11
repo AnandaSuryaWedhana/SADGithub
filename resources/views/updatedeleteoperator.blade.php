@@ -13,6 +13,7 @@
   <body>
       @include('partials.partialnavbar')
     <div class="container mt-5">
+        <h1 class="text-center">Update & Delete Operator</h1>
         @if (Session::get('success'))
             <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ Session::get('success') }}
@@ -25,7 +26,6 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <h1 class="text-center">Update & Delete Operator</h1>
         {{-- <form method="get">
             <div class="form-group row mb-4 mt-4">
               <label for="exampleDataList" class="col-sm-2 col-form-label">Cari Data :</label>
