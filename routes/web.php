@@ -7,6 +7,7 @@ use App\Http\Controllers\entryproduk;
 use App\Http\Controllers\entrytransaksi;
 use App\Http\Controllers\laporanproduklaris;
 use App\Http\Controllers\laporantransaksi;
+use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\portofolioprodukmarketing;
 use App\Http\Controllers\updatedeletekategori;
 use App\Http\Controllers\updatedeleteoperator;
@@ -26,11 +27,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('entryoperator',[
-        "title" => "Entry operator"
-    ]);
-});
 Route::get('entrypembeli',[entrypembeli::class,'index']);
 Route::post('/entrypembeli',[entrypembeli::class,'store']);
 Route::get('entrykategori',[entrykategori::class,'index']);
@@ -118,9 +114,6 @@ Route::post('/updatekategori/{id}',[updatedeletekategori::class,'updatekategori'
 //         "title" => "updatetransaksi"
 //     ]);
 // });
-Route::get('/login',function(){
-    return view('login',[
-        "title" => "login"
-    ]);
-});
+Route::get('/',[logincontroller::class,'index']);
+Route::post('/loginuser',[logincontroller::class,'loginfunction']);
 Route::get('filterdata',[laporantransaksi::class,'filterdata']);
