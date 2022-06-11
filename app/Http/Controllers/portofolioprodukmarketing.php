@@ -32,71 +32,127 @@ class portofolioprodukmarketing extends Controller
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaynakas(){
+    public function displaynakas(Request $request){
         $name = 'NAKAS';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP004')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP004')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP004')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaydipan(){
+    public function displaydipan(Request $request){
         $name = 'DIPAN';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP003')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP003')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP003')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaykitchenset(){
+    public function displaykitchenset(Request $request){
         $name = 'KITCHEN SET';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP001')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP001')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP001')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaymejabelajar(){
+    public function displaymejabelajar(Request $request){
         $name = 'MEJA BELAJAR';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP007')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP007')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP007')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaylemari(){
+    public function displaylemari(Request $request){
         $name = 'LEMARI';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP002')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP002')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP002')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaydisplaytv(){
+    public function displaydisplaytv(Request $request){
         $name = 'DISPLAY TV';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP005')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP005')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP005')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
-    public function displaymejarias(){
+    public function displaymejarias(Request $request){
         $name = 'MEJA RIAS';
-        $data = [
-            'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP006')->paginate(8)
-        ];
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KP006')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP006')->paginate(8)
+            ];
+        }
         return view('portofolioprodukmarketing',[
             'title' => 'portofolioprodukmarketing',
             'photo' => '\photo\nakasphoto.jpg'
