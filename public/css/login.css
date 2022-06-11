@@ -21,10 +21,10 @@ body{
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
-  height: 410px;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+  padding: 10px;
 }
 .center h1{
   text-align: center;
