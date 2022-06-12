@@ -31,17 +31,10 @@ class logincontroller extends Controller
             $checkroleuser = get_object_vars($checkroleuser);
             if(strtolower($checkroleuser['ROLE']) == 'marketing'){
                 $name = 'PRODUK';
-                $searhproduct = $request->input('cariproduk');
-                if(!empty($searhproduct)){
-                    $data = [
-                        'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->paginate(8)
-                    ];
-                }
-                else{
-                    $data = [
-                        'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->paginate(8)
-                    ];
-                }
+                $request->session()->put('user',$usernameinput);
+                     $data = [
+                         'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->paginate(8)
+                     ];
                 return view('portofolioprodukmarketing',[
                     'title' => 'portofolioprodukmarketing',
                     'photo' => '\photo\nakasphoto.jpg'
