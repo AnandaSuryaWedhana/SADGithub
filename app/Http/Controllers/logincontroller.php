@@ -32,7 +32,6 @@ class logincontroller extends Controller
             if(strtolower($checkroleuser['ROLE']) == 'marketing'){
                 $name = 'PRODUK';
                 $searhproduct = $request->input('cariproduk');
-                $request->session()->put('user',$usernameinput);
                 if(!empty($searhproduct)){
                     $data = [
                         'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->paginate(8)
