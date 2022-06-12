@@ -45,8 +45,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP004')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
