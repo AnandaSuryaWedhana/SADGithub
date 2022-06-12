@@ -11,12 +11,23 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(189, 156, 116)">
         <div class="container-fluid">
-          <a class="navbar-brand align-middle" href="/">Eling Furniture</a>
+          <a class="navbar-brand align-middle" href="/laporanproduklaris">Eling Furniture</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
+                <li class="nav-item">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduklaris") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Laporan
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <li><a class="dropdown-item" href="/laporantransaksi">Laporan Transkasi</a></li>
+                          <li><a class="dropdown-item" href="/laporanproduklaris">Laporan Produk Terlaris</a></li>
+                        </ul>
+                      </li>
+                </li>
               <li class="nav-item">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{ ($title === "entrypembeli" or $title === "updatedeletepembeli" or $title === "updatepembeli") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -49,17 +60,6 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="/entryoperator">Entry Operator</a></li>
                       <li><a class="dropdown-item" href="/updatedeleteoperator">Update  & Delete Operator</a></li>
-                    </ul>
-                  </li>
-            </li>
-            <li class="nav-item">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle {{ ($title === "laporantransaksi" or $title === "laporanproduklaris") ? 'active' : '' }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Laporan
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="/laporantransaksi">Laporan Transkasi</a></li>
-                      <li><a class="dropdown-item" href="/laporanproduklaris">Laporan Produk Terlaris</a></li>
                     </ul>
                   </li>
             </li>
