@@ -86,7 +86,7 @@ class entrypembeli extends Controller
                   'JUMLAHPRODUK_TRANSAKSI' => $request->input('JumlahTransaksi'),
                   'DEL' => 0
               ]);
-            return back()->with('success','Pembeli Berhasil Dimasukkan');
+            return view('entrypembeli',['title'=>'entrypembeli'])->with('success','Pembeli Berhasil Dimasukkan');
         }
          else{
             return back()->with('fail','Pembeli Sudah Tersedia');
