@@ -24,7 +24,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-    <form action="/entrypembeli" method="POST">
+    <form method="post" action="/addpembeli">
         @csrf
         <div class="col-12" style="padding-top: 10px">
             <label for="inputName" class="form-label">Nama : </label>
