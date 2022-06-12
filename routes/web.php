@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('entrypembeli',[entrypembeli::class,'index']);
-Route::post('/entrypembeli',[entrypembeli::class,'store']);
+Route::post('/addpembeli',[entrypembeli::class,'store']);
 Route::get('entrykategori',[entrykategori::class,'index']);
 Route::post('/entrykategori',[entrykategori::class,'store']);
 Route::get('entryproduk',[entryproduk::class,'index']);
@@ -70,13 +70,13 @@ Route::get('/laporantransaksi',function(){
 });
 Route::get('/laporanproduklaris',[laporanproduklaris::class,'index']);
 Route::get('/portofolioprodukmarketing',[portofolioprodukmarketing::class,'index']);
-Route::get('/portofolioprodukmarketing/nakas',[portofolioprodukmarketing::class,'displaynakas']);
-Route::get('/portofolioprodukmarketing/dipan',[portofolioprodukmarketing::class,'displaydipan']);
-Route::get('/portofolioprodukmarketing/kitchenset',[portofolioprodukmarketing::class,'displaykitchenset']);
-Route::get('/portofolioprodukmarketing/mejabelajar',[portofolioprodukmarketing::class,'displaymejabelajar']);
-Route::get('/portofolioprodukmarketing/lemari',[portofolioprodukmarketing::class,'displaylemari']);
-Route::get('/portofolioprodukmarketing/displaytv',[portofolioprodukmarketing::class,'displaydisplaytv']);
-Route::get('/portofolioprodukmarketing/mejarias',[portofolioprodukmarketing::class,'displaymejarias']);
+Route::get('/portofolioprodukmarketinglainnya/nakas',[portofolioprodukmarketing::class,'displaynakas']);
+Route::get('/portofolioprodukmarketinglainnya/dipan',[portofolioprodukmarketing::class,'displaydipan']);
+Route::get('/portofolioprodukmarketinglainnya/kitchenset',[portofolioprodukmarketing::class,'displaykitchenset']);
+Route::get('/portofolioprodukmarketinglainnya/mejabelajar',[portofolioprodukmarketing::class,'displaymejabelajar']);
+Route::get('/portofolioprodukmarketinglainnya/lemari',[portofolioprodukmarketing::class,'displaylemari']);
+Route::get('/portofolioprodukmarketinglainnya/displaytv',[portofolioprodukmarketing::class,'displaydisplaytv']);
+Route::get('/portofolioprodukmarketinglainnya/mejarias',[portofolioprodukmarketing::class,'displaymejarias']);
 Route::get('/detailportofolioprodukmarketing/{id}',[portofolioprodukmarketing::class,'show']);
 Route::get('/laporantransaksi',[laporantransaksi::class,'index']);
 Route::get('/detailportofolioprodukmarketing',function(){
