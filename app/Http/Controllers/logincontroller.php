@@ -41,10 +41,14 @@ class logincontroller extends Controller
                 ],$data)->with(['name'=>$name]);
             }
             else{
+                $data = [
+                    'list'=>DB::table('PRODUK')->join('KATEGORI', 'PRODUK.ID_KATEGORI', '=', 'KATEGORI.ID_KATEGORI')
+                    ->select('NAMA_PRODUK','ID_PRODUK','NAMA_KATEGORI','DESKRIPSI_PRODUK','HARGA_PRODUK','JUMLAHPRODUK_TRANSAKSI')->get()
+                ];
                 $request->session()->put('user',$usernameinput);
-                return view('entrypembeli',[
-                    "title" => "entrypembeli",
-                ]);
+                return view('laporanproduklaris',[
+                'title' => 'laporanproduklaris'
+                ],$data);
             }
         }
     }
