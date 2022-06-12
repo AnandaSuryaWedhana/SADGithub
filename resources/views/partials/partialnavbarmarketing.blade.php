@@ -19,18 +19,18 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle {{ ($title === "portofolioprodukmarketing" or $title === "detailportofolioprodukmarketing") ? "active" : "" }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {{ ($title === "portofolioprodukmarketing" or $title === "detailportofolioprodukmarketing" or $title === "portofolioprodukmarketinglainnya") ? "active" : "" }}" style="margin-right : 10px" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Produk
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="/portofolioprodukmarketing">Produk lengkap</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/nakas">Nakas</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/dipan">Dipan</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/kitchenset">Kitchen Set</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/mejabelajar">Meja Belajar</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/lemari">Lemari</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/displaytv">Display TV</a></li>
-                          <li><a class="dropdown-item" href="/portofolioprodukmarketing/mejarias">Meja Rias</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/nakas">Nakas</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/dipan">Dipan</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/kitchenset">Kitchen Set</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/mejabelajar">Meja Belajar</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/lemari">Lemari</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/displaytv">Display TV</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/mejarias">Meja Rias</a></li>
                         </ul>
                     </li>
               </li>
