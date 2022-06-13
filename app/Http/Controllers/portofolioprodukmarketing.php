@@ -158,6 +158,24 @@ class portofolioprodukmarketing extends Controller
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
+    public function displaycermin(Request $request){
+        $name = 'CERMIN';
+        $searhproduct = $request->input('cariproduk');
+        if(!empty($searhproduct)){
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('NAMA_PRODUK','like','%' . $searhproduct . '%')->where('ID_KATEGORI','=','KC001')->paginate(8)
+            ];
+        }
+        else{
+            $data = [
+                'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KC001')->paginate(8)
+            ];
+        }
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
+            'photo' => '\photo\nakasphoto.jpg'
+        ],$data)->with(['name'=>$name]);
+    }
 
     /**
      * Show the form for creating a new resource.
