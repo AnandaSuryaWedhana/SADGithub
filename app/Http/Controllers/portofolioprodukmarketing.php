@@ -63,8 +63,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP003')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
@@ -81,8 +81,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP001')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
@@ -99,8 +99,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP007')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
@@ -117,8 +117,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP002')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
@@ -135,8 +135,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP005')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
@@ -153,8 +153,8 @@ class portofolioprodukmarketing extends Controller
                 'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->where('ID_KATEGORI','=','KP006')->paginate(8)
             ];
         }
-        return view('portofolioprodukmarketing',[
-            'title' => 'portofolioprodukmarketing',
+        return view('portofolioprodukmarketinglainnya',[
+            'title' => 'portofolioprodukmarketinglainnya',
             'photo' => '\photo\nakasphoto.jpg'
         ],$data)->with(['name'=>$name]);
     }
