@@ -116,4 +116,5 @@ Route::post('/updatekategori/{id}',[updatedeletekategori::class,'updatekategori'
 // });
 Route::get('/',[logincontroller::class,'index']);
 Route::post('/loginuser',[logincontroller::class,'loginfunction']);
+Route::get('/loginuser',[logincontroller::class,'loginfunction']);
 Route::get('filterdata',[laporantransaksi::class,'filterdata']);
