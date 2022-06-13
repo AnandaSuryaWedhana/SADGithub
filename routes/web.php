@@ -77,6 +77,7 @@ Route::get('/portofolioprodukmarketinglainnya/mejabelajar',[portofolioprodukmark
 Route::get('/portofolioprodukmarketinglainnya/lemari',[portofolioprodukmarketing::class,'displaylemari']);
 Route::get('/portofolioprodukmarketinglainnya/displaytv',[portofolioprodukmarketing::class,'displaydisplaytv']);
 Route::get('/portofolioprodukmarketinglainnya/mejarias',[portofolioprodukmarketing::class,'displaymejarias']);
+Route::get('/portofolioprodukmarketinglainnya/cermin',[portofolioprodukmarketing::class,'displaycermin']);
 Route::get('/detailportofolioprodukmarketing/{id}',[portofolioprodukmarketing::class,'show']);
 Route::get('/laporantransaksi',[laporantransaksi::class,'index']);
 Route::get('/detailportofolioprodukmarketing',function(){
