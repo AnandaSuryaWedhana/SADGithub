@@ -31,6 +31,7 @@
                           <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/lemari">Lemari</a></li>
                           <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/displaytv">Display TV</a></li>
                           <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/mejarias">Meja Rias</a></li>
+                          <li><a class="dropdown-item" href="/portofolioprodukmarketinglainnya/cermin">Cermin</a></li>
                         </ul>
                     </li>
               </li>
