@@ -26,7 +26,7 @@
         <div class="container row" style="width: 90%; margin:auto">
                 @foreach ($list as $d)
                 <div class="card rounded" style="width: 18rem; margin:10px">
-                    <img src="{{ $photo }}" class="card-img-top" alt="Nakas">
+                    <img src="{{ $d->FOTO_PRODUK }}" class="card-img-top" alt="Nakas">
                     <div class="card-body">
                     <h5 class="card-title">{{ $d->NAMA_PRODUK }}</h5>
                     <p class="card-text">{{ $d->DESKRIPSI_PRODUK }}</p>
