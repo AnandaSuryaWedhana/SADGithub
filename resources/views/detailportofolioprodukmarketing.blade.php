@@ -24,13 +24,13 @@
                 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
-                        <img src="{{ $photo }}" class="d-block rounded" style="width : 100%" alt="...">
+                        <img src="\{{ $data[0]->FOTO_PRODUK }}" class="d-block rounded" style="width : 100%" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="{{ $photo }}" class="d-block rounded" style="width : 100%" alt="...">
+                        <img src="\{{ $data[0]->FOTO_PRODUK }}" class="d-block rounded" style="width : 100%" alt="...">
                       </div>
                       <div class="carousel-item">
-                        <img src="{{ $photo }}" class="d-block rounded" style="width : 100%" alt="...">
+                        <img src="\{{ $data[0]->FOTO_PRODUK }}" class="d-block rounded" style="width : 100%" alt="...">
                       </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
