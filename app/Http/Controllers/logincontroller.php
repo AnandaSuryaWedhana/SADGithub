@@ -36,8 +36,7 @@ class logincontroller extends Controller
                          'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK','FOTO_PRODUK')->paginate(8)
                      ];
                 return view('portofolioprodukmarketing',[
-                    'title' => 'portofolioprodukmarketing',
-                    'photo' => '\photo\nakasphoto.jpg'
+                    'title' => 'portofolioprodukmarketing'
                 ],$data)->with(['name'=>$name]);
             }
             else{
