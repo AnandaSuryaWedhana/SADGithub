@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class entrykategori extends Controller
+class entryproduk extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -88,7 +88,7 @@ class entrykategori extends Controller
                   'HARGA_PRODUK' => $request->input('HargaProduk'),
                   'FOTO_PRODUK' => $request->input('FotoProduk'),
                   'JUMLAHPRODUK_TRANSAKSI' => $request->input('JumlahProduk'),
-                  'DEL_PRODUK' => 0
+                  'del' => 0
               ]);
             return back()->with('success','Produk Berhasil Dimasukkan');
         }

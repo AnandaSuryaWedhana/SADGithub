@@ -55,11 +55,16 @@ class updatedeleteproduk extends Controller
      */
     public function show($id)
     {
-        $produk = DB::select('select * from PRODUK where ID_PRODUK= ?', [$id]);
+        // $data= DB::select('select * from PRODUK where ID_PRODUK= ', [$id]);
+        $data = modelupdatedeleteproduk::findOrFail($id);
+        $kategori = [DB::table('KATEGORI')->select('NAMA_KATEGORI','ID_KATEGORI')->get()];
+        
+        // dd($data->kategori->NAMA_KATEGORI);
+        // dd($kategori[0][0]->NAMA_KATEGORI);
         return view('updateproduk',[
-            'title'=>'updateproduk',
-            'data'=>$produk
-        ]);
+            'title' => 'updatedeleteoperator'
+        ],compact('data','kategori'));
+        
     }
     public function deleteproduk($id)
     {
