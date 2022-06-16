@@ -26,6 +26,11 @@
           <span style="color: red">@error('Password'){{ $message }}@enderror</span>
         </div>
         <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Konfirmasi Kata Sandi</label>
+        <input type="password" name="PasswordConfirmation" class="form-control" id="floatingPassword" placeholder="Konfirmasi Password"/>
+        <span style="color: red">@error('PasswordConfirmation'){{ $message }}@enderror</span>
+          </div>
+        <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Role</label>
           <select class="form-select" name="role" aria-label="Default select example">
             <option value="{{ $data->ROLE }}" selected>{{ $data->ROLE }}</option>
