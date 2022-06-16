@@ -33,7 +33,7 @@ class logincontroller extends Controller
                 $name = 'PRODUK';
                 $request->session()->put('user',$usernameinput);
                      $data = [
-                         'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK')->paginate(8)
+                         'list' => DB::table('PRODUK')->select('ID_PRODUK','NAMA_PRODUK','DESKRIPSI_PRODUK','FOTO_PRODUK')->paginate(8)
                      ];
                 return view('portofolioprodukmarketing',[
                     'title' => 'portofolioprodukmarketing',
