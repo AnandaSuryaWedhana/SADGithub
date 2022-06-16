@@ -23,8 +23,8 @@
     <form action="/updateproduk/{{ $data[0]->ID_PRODUK }}" method="post">
         @csrf
         <div class="col-12" style="padding-top: 10px">
-            <label for="inputKategori" class="form-label">Nama Kategori : </label>
-            <select name="Kategori" id="inputKategori" value="{{ $data[0]->ID_KATEGORI}}">
+        <label for="inputKategori" class="form-label">Nama Kategori : </label>
+            <select name="Kategori" id="inputKategori">
               <option value="KC001">CERMIN</option>
               <option value="KP001">KITCHEN SET</option>
               <option value="KP002">LEMARI</option>
