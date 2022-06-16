@@ -54,7 +54,7 @@
                 <th scope="row">{{ $data->ID_PEMBELI }}</th>
                 <td>{{ $data->NAMA_PEMBELI }}</td>
                 <td>
-                  <a href="/halamantransaksiproduk"><button type="button" class="btn btn-info">Select</button></a>
+                <a href="/entrytransaksi/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">SELECT</button></a>
                 </td>
               </tr>
               @endforeach

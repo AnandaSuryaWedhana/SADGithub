@@ -58,7 +58,7 @@
       </div>
       <div class="col-12" style="padding-top: 10px">
         <label for="inputFotoProduk" class="form-label">Foto Produk : </label>
-        <input type="file" name="FotoProduk" class="form-control" id="inputFotoProduk" placeholder="" value="{{ $data->FOTO_PRODUK}}" />
+        <input type="file" name="FotoProduk" class="form-control" id="inputFotoProduk" title="{{ $data->FOTO_PRODUK}}" value="{{ $data->FOTO_PRODUK}}" />
         <span style="color: red">@error('FotoProduk'){{ $message }}@enderror</span>
       </div>
       <div class="col-12" style="padding-top: 10px">
