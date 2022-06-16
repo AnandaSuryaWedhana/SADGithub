@@ -94,8 +94,8 @@ class updatedeleteoperator extends Controller
             return redirect('updatedeleteoperator')->with('fail','Data Tidak Berhasil Diupdate!');
         }
         else{
-            DB::update('update USER set USERNAME = ?, PASSWORD = ?, ROLE = ? where ID_USER = ?', [$user_username,$user_password,$user_role,$id]);
-            return redirect('updatedeleteoperator')->with('successupdate','Data Berhasil Diupdate!');
+             DB::update('update USER set USERNAME = ?, PASSWORD = ?, ROLE = ? where ID_USER = ?', [$user_username,$user_password,$user_role,$id]);
+             return redirect('updatedeleteoperator')->with('successupdate','Data Berhasil Diupdate!');
         }
     }
     /**
