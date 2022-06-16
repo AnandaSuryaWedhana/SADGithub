@@ -83,13 +83,20 @@ class updatedeleteoperator extends Controller
     public function updateoperator(Request $request,$id){
         $request->validate([
             'Username' => 'required',
-            'Password' => 'required|min:3'
+            'Password' => 'required|min:3',
+            'PasswordConfirmation' => 'required|min:3'
         ]);
         $user_username = $request->input('Username');
         $user_password = $request->input('Password');
         $user_role = $request->input('role');
-        DB::update('update USER set USERNAME = ?, PASSWORD = ?, ROLE = ? where ID_USER = ?', [$user_username,$user_password,$user_role,$id]);
-        return redirect('updatedeleteoperator')->with('successupdate','Data Berhasil Diupdate!');
+        $user_passwordconfirmation = $request->input('PasswordConfirmation');
+        if($user_password != $user_passwordconfirmation){
+            return redirect('updatedeleteoperator')->with('fail','Data Tidak Berhasil Diupdate!');
+        }
+        else{
+            DB::update('update USER set USERNAME = ?, PASSWORD = ?, ROLE = ? where ID_USER = ?', [$user_username,$user_password,$user_role,$id]);
+            return redirect('updatedeleteoperator')->with('successupdate','Data Berhasil Diupdate!');
+        }
     }
     /**
      * Show the form for editing the specified resource.
