@@ -26,6 +26,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
+        @if (Session::get('fail'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session::get('fail') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
         {{-- <form method="get">
             <div class="form-group row mb-4 mt-4">
               <label for="exampleDataList" class="col-sm-2 col-form-label">Cari Data :</label>
