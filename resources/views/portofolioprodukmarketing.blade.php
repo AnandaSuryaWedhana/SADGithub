@@ -18,7 +18,7 @@
         <h1 class="text-center">{{ $name }}</h1>
         <form method="get" action="/portofolioprodukmarketing">
             <div class="separatediv" style="display: flex; width:100%">
-                <input class="form-control" name="cariproduk" type="text" placeholder="Default input" aria-label="default input example">
+                <input class="form-control" name="cariproduk" type="text" placeholder="Mencari Nama Produk" aria-label="default input example">
             </div>
         </form>
     </div>
