@@ -65,13 +65,13 @@ class updatedeletetransaksi extends Controller
         return redirect('updatedeletetransaksi')->with('success','Data Terhapus');
     }
     public function updatetransaksi(Request $request,$id){
-        // $request->validate([
-        //     // 'Tanggal' => 'required|regex:^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/',
-        //     // 'TotalProduk' =>'required|numeric|gt:0',
-        //     // 'TotalTransaksi' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
-        //     // 'PembayaranDiterima' => 'required|regex:/^(\d+(,\d{1,2})?)?$/',
-        //     // 'StatusPembayaran' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11'
-        // ]);
+        $request->validate([
+         'Tanggal' => 'required|',
+         'TotalProduk' =>'required|',
+         'TotalTransaksi' => 'required|',
+         'PembayaranDiterima' => 'required|',
+        'StatusPembayaran' => 'required|'
+        ]);
         $tanggal_transaksi = $request->input('Tanggal' );
         $jumlah_transaksi = $request->input('TotalProduk');
         $total_transaksi = $request->input('TotalTransaksi');

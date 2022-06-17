@@ -72,10 +72,14 @@ class updatedeleteproduk extends Controller
         return redirect('updatedeleteproduk')->with('success','Data Terhapus');
     }
     public function updateproduk(Request $request,$id){
-        // $request->validate([
-        //     'NamaProduk' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:11',
-        //     'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
-        // ]);
+        $request->validate([
+            'NamaProduk' => 'required|',
+           'Kategori' =>'required|',
+           'DeskripsiProduk' =>'required|',
+           'HargaProduk'=>'required|',
+           'FotoProduk' =>'',
+           'JumlahProduk'=>'required|'
+         ]);
         
         $id_kategori = $request->input('Kategori');
         $nama_produk = $request->input('NamaProduk');
