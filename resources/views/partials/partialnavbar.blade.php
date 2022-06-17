@@ -79,7 +79,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link disabled" style="color: whitesmoke">Hai, {{ session('user') }}</a>
+                <a class="nav-link disabled" style="color: whitesmoke">Hai, {{ session('user') }}!</a>
               </li>
               <li class="nav-item">
                 <a href="/logout"><button class="btn btn-outline-warning me-2" type="button">Log Out</button></a>
