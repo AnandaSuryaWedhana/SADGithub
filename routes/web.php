@@ -125,3 +125,4 @@ Route::get('/',[logincontroller::class,'index']);
 Route::post('/loginuser',[logincontroller::class,'loginfunction']);
 Route::get('/loginuser',[logincontroller::class,'loginfunction']);
 Route::get('filterdata',[laporantransaksi::class,'filterdata']);
+Route::get('/logout',[logincontroller::class,'index']);
