@@ -41,7 +41,7 @@
           <select class="form-select" name="role" aria-label="Default select example">
             <option value="Marketing">Marketing</option>
             <option value="Accountant">Accountant</option>
-            <option value="Receptionist">Receptionist</option>
+            <option value="Receptionist">Photographer</option>
           </select>
         </div>
         <div class="col-12 text-center">
