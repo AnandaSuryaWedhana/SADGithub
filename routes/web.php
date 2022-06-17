@@ -6,6 +6,7 @@ use App\Http\Controllers\entrykategori;
 use App\Http\Controllers\entryproduk;
 use App\Http\Controllers\entrytransaksi;
 use App\Http\Controllers\laporanproduklaris;
+use App\Http\Controllers\cobatransaksi;
 use App\Http\Controllers\laporantransaksi;
 use App\Http\Controllers\logincontroller;
 use App\Http\Controllers\portofolioprodukmarketing;
@@ -92,6 +93,8 @@ Route::get('/updatedeletekategori',[updatedeletekategori::class,'index']);
 Route::get('/editkategori/{id}',[updatedeletekategori::class,'show']);
 Route::get('/deletekategori/{id}',[updatedeletekategori::class,'deletekategori']);
 Route::post('/updatekategori/{id}',[updatedeletekategori::class,'updatekategori']);
+Route::get('cobatransaksi',[cobatransaksi::class,'index']);
+Route::post('cobatransaksi',[cobatransaksi::class,'show']);
 // Route::post('/halamantransaksiproduk/{id}',[halamantransaksiproduk::class,'show']);
 // Route::get('/updatedeleteproduk',function(){
 //     return view('updatedeleteproduk',[

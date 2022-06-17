@@ -14,6 +14,7 @@ class entryproduk extends Controller
      */
     public function index()
     {
+        
         return view('entryproduk',[
             "title" => "entryproduk"
         ]);

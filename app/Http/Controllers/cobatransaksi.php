@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Modelentryproduktransaksi;
 use Illuminate\Support\Str;
-use app\Models;
-use Session;
 
 
-class entrytransaksi extends Controller
+
+class cobatransaksi extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,12 +17,13 @@ class entrytransaksi extends Controller
      */
     public function index()
     {
-        $data = [
-            'list' => DB::table('PEMBELI')->get()
-        ];
-        return view('entrytransaksi',[
-            'title'=>'entrytransaksi'
-        ],$data);
+        
+      
+        $simpan = [DB::table('SIMPAN')->get()];
+        $kategori = [DB::table('KATEGORI')->select('NAMA_KATEGORI','ID_KATEGORI')->get()];
+        return view('cobatransaksi',[
+            'title'=>'cobatransaksi'
+        ],['kategori'=>$kategori,'simpan'=>$simpan]);
         
     }
 
@@ -46,73 +45,7 @@ class entrytransaksi extends Controller
      */
     
     
-    public function inserttransaksi($id)
-    {
-        $transaksi = new Modelentryproduktransaksi;
-        Session::put('id', $id);
-
-        $idtransaksi =  $transaksi -> get_idtransaksi($id);
-        $simpantransaksi =$transaksi -> get_masukin((array)$id,(array)$idtransaksi);
-        return view(halamaninsert);
-    }
-    public function halamaninsert($id,$idtransaksi){
-        return view('halamantransaksiproduk/{id}/{idtransaksi}',[
-            'title'=>'halamantransaksiproduk'
-        ]);
-    }
-    public function addagain($id,$idtransaksi){
-        
-        $id_kategori = $request->input('Kategori');
-        $nama_produk = $request->input('NamaProduk');
-        $deskripsi_produk = $request->input('DeskripsiProduk');
-        $harga_produk = $request->input('HargaProduk');
-        $qty = $request->input('JumlahProduk');
-        $availableproduk = DB::table('PRODUK')
-        ->where('NAMA_PRODUK', '=', $nama_produk)
-        ->count();
-        // check data availability
-        if($availableproduk == 0){
-            // generate id
-             $substrdata = substr($nama_produk,0,1);
-             $substrdata = strtoupper($substrdata);
-             $count = DB::table('PRODUK')
-             ->where('ID_PRODUK', 'like', '%P'. $substrdata .'%')
-             ->latest('ID_PRODUK')
-             ->count();
-             if($count == 0){
-                 $idproduk = "P". $substrdata. "001";
-            }
-             if($count > 0){
-                 $lastid = DB::table('PRODUK')
-                 ->where('ID_PRODUK', 'like', '%P'. $substrdata .'%')
-                 ->latest('ID_PRODUK')
-                 ->first('ID_PRODUK');
-                 $arrayvalue = get_object_vars($lastid);
-                 $substrid = substr($arrayvalue['ID_PRODUK'], -1);
-                 $int = (int)$substrid+1;
-                 $intlen = strlen((string)$int);
-                 if($intlen > 0 and $intlen <9){
-                     $idproduk = "P". $substrdata. "00". (string)$int;
-                 }
-                 if($intlen > 9 and $intlen <100){
-                     $idproduk = "P". $substrdata."0". (string)$int;
-                 }
-            }
-            $query = DB::table('SIMPAN')->insert([
-                'ID_PEMBELI' =>$id,
-                'ID_TRANSAKSI' =>$idtransaksi,
-                'ID_PRODUK' => $idproduk,
-                'ID_KATEGORI' => $id_kategori,
-                'NAMA_PRODUK' => $request->input('NamaProduk'),
-                'DESKRIPSI_PRODUK' => $request->input('DeskripsiProduk'),
-                'HARGA_PRODUK' => $request->input('HargaProduk'),
-                'QTY' => $request->input('JumlahProduk'),
-                'DEL' => 0
-            ]);
-          return back()->with('success','Produk Berhasil Dimasukkan');
-        }
-
-    }
+ 
 
     // public function store(Request $request)
     // {

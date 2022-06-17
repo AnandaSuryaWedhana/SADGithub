@@ -27,5 +27,10 @@ class modelentrytransaksi extends Model
         $excecutequeryfunctionid = DB::select($querycallfunctionid,$sekarang);
         return $excecutequeryfunctionid;
     }
+    function get_masukin($id,$idtransaksi){
+        $queryinsertawal = "insert into SIMPAN (ID_PEMBELI, ID_TRANSAKSI,ID_KATEGORI,ID_PRODUK,NAMA_PRODUK,DESKRIPSI_PRODUK,HARGA_PRODUK,QTY,DEL) VALUES(:id,:idtransaksi,0,0,0,0,0,0,0);";
+        $excecutequeryinsertawal = DB::select($queryinsertawal,$id);
+        return $excecutequeryinsertawal;
+    }
     
 }

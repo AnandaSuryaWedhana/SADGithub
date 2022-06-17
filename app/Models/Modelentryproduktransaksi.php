@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\modelentrytransaksi;
+use Illuminate\Support\Facades\DB;
+use App\Models\Modelentryproduktransaksi;
+
 
 class Modelentryproduktransaksi extends Model
 {
     use HasFactory;
-    use Sortable;
+    
     protected $table = 'SIMPAN';
     public $timestamp = false;
     public $sortable = [
@@ -22,8 +24,9 @@ class Modelentryproduktransaksi extends Model
         return $excecutequeryfunctionid;
     }
     function get_masukin($id,$idtransaksi){
-        $queryinsertawal = "insert into SIMPAN (ID_PEMBELI, ID_TRANSAKSI,ID_KATEGORI,ID_PRODUK,NAMA_PRODUK,DESKRIPSI_PRODUK,HARGA_PRODUK,QTY,DEL) VALUES(:id,:idtransaksi,0,0,0,0,0,0,0);";
+        $queryinsertawal = DB::insert('insert into SIMPAN (ID_PEMBELI, ID_TRANSAKSI,ID_KATEGORI,ID_PRODUK,NAMA_PRODUK,DESKRIPSI_PRODUK,HARGA_PRODUK,QTY,DEL) values (?,?,0,0,0,0,0,0,0)', [$id,$idtransaksi]);
         $excecutequeryinsertawal = DB::select($queryinsertawal,$id);
         return $excecutequeryinsertawal;
+        
     }
 }

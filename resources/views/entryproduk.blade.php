@@ -24,6 +24,7 @@
         @csrf
         <div class="col-12" style="padding-top: 10px">
             <label for="inputKategori" class="form-label">Nama Kategori : </label>
+            
             <select name="Kategori" id="inputKategori">
               <option value="KC001">CERMIN</option>
               <option value="KP001">KITCHEN SET</option>
@@ -34,7 +35,7 @@
               <option value="KP006">MEJA RIAS</option>
               <option value="KP007">MEJA BELAJAR</option>
               <option value="KP008">RAK SEPATU</option>
-            </select>
+            </select> 
             <span style="color: red">@error('NamaKategori'){{ $message }}@enderror</span>
         </div>
       <div class="col-12" style="padding-top: 10px">
