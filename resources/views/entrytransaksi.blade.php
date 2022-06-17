@@ -33,43 +33,59 @@
               </div>
             </div>
           </form> --}}
-      <div class="table-responsive mt-4">
-        <!--Table-->
-        <table class="table table-striped table-hover " id="tablepembeli">
-
-          <!--Table head-->
-          <thead>
-            <tr>
-              <th>ID PEMBELI</th>
-              <th class="th-lg">NAMA PEMBELI</th>
-              <th class="th-lg">Action</th>
-            </tr>
-          </thead>
-          <!--Table head-->
-
-          <!--Table body-->
-          <tbody>
-              @foreach ($list as $data)
-              <tr>
-                <th scope="row">{{ $data->ID_PEMBELI }}</th>
-                <td>{{ $data->NAMA_PEMBELI }}</td>
-                <td>
-                <a href="/entrytransaksi/{{ $data->ID_PEMBELI }}"><button type="button" class="btn btn-info">SELECT</button></a>
-                </td>
-              </tr>
-              @endforeach
-          </tbody>
-
-
-        </table>
+        <form action="/entrytransaksi" method="post">
+        @csrf
+        <div class="col-12" style="padding-top: 10px">
+          <label for="inputPembeli" class="form-label">Nama Pembeli : </label>
+          <select name="pembeli" id="inputPembeli">
+            @foreach ($list as $data)
+             <option value="{{ $data->ID_PEMBELI }}">{{ $data->NAMA_PEMBELI }}</option>
+            @endforeach
+        </select>
+        <span style="color: red">@error('pembeli'){{ $message }}@enderror</span>
+        </div>
+        <div class="col-12" style="padding-top: 10px">
+            <label for="inputKategori" class="form-label">Nama Kategori : </label>
+            
+            <select name="Kategori" id="inputKategori">
+              <option value="KC001">CERMIN</option>
+              <option value="KP001">KITCHEN SET</option>
+              <option value="KP002">LEMARI</option>
+              <option value="KP003">DIPAN</option>
+              <option value="KP004">NAKAS</option>
+              <option value="KP005">DISPLAY TV</option> 
+              <option value="KP006">MEJA RIAS</option>
+              <option value="KP007">MEJA BELAJAR</option>
+              <option value="KP008">RAK SEPATU</option>
+            </select> 
+            <span style="color: red">@error('NamaKategori'){{ $message }}@enderror</span>
+        </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputNamaProduk" class="form-label">Nama Produk : </label>
+        <input type="text" name="NamaProduk" class="form-control" id="inputNamaProduk" placeholder="" value="{{ old('NamaProduk')}}" />
+        <span style="color: red">@error('NamaProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputDeskripsiProduk" class="form-label">Deskripsi Produk : </label>
+        <input type="text" name="DeskripsiProduk" class="form-control" id="inputDeskripsiProduk" placeholder="" value="{{ old('DeskripsiProduk')}}" />
+        <span style="color: red">@error('DeskripsiProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputHargaProduk" class="form-label">Harga Produk : </label>
+        <input type="number" name="HargaProduk" class="form-control" id="inputHargaProduk" placeholder="" value="{{ old('HargaProduk')}}" />
+        <span style="color: red">@error('HargaProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputJumlahProduk" class="form-label">Jumlah Produk  : </label>
+        <input type="number" name="JumlahProduk" class="form-control" id="inputJumlahProduk" placeholder="" value="{{ old('JumlahProduk')}}" />
+        <span style="color: red">@error('JumlahProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit">Simpan!</button>
+      </div>
+    </form>
         {{-- <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div> --}}
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-   <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-   <script>
-       $(document).ready( function () {
-        $('#tablepembeli').DataTable();
-        } );
-   </script>
+    
   </body>
 </html>

@@ -17,13 +17,15 @@ class cobatransaksi extends Controller
      */
     public function index()
     {
+       
+        $pembeli = [DB::table('PEMBELI')->select('NAMA_PEMBELI','ID_PEMBELI')->get()];
         
-      
-        $simpan = [DB::table('SIMPAN')->get()];
-        $kategori = [DB::table('KATEGORI')->select('NAMA_KATEGORI','ID_KATEGORI')->get()];
+        // dd($data->kategori->NAMA_KATEGORI);
+        // dd($kategori[0][0]->NAMA_KATEGORI);
         return view('cobatransaksi',[
-            'title'=>'cobatransaksi'
-        ],['kategori'=>$kategori,'simpan'=>$simpan]);
+            'title' => 'cobatransaksi'
+        ],$pembeli);
+        
         
     }
 
