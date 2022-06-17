@@ -81,7 +81,8 @@
         <span style="color: red">@error('JumlahProduk'){{ $message }}@enderror</span>
       </div>
       <div class="col-12 text-center">
-        <button class="btn btn-primary" type="submit">Simpan!</button>
+        <button class="btn btn-primary" type="submit">Add Again</button>
+        <button class="btn btn-primary" type="submit">Deal</button>
       </div>
     </form>
         {{-- <div class="d-flex justify-content-center">{!! $list->appends(Request::except('page'))->render() !!}</div> --}}
