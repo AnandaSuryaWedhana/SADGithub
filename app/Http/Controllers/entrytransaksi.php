@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Modelentryproduktransaksi;
 use Illuminate\Support\Str;
 use app\Models;
-use Session;
 
 
 
@@ -49,14 +48,10 @@ class entrytransaksi extends Controller
     
     public function store(Request $request)
     {
-        // validate
-        // $request->validate([
-        //     'NamaKategori' => 'required|regex:/^[a-zA-Z ]*$/|max:100|min:3',
-        //     'DeskripsiKategori' =>'required|regex:/(^[-0-9A-Za-z.,\/ ]+$)/|min:5'
-        // ]);
+        
         
         $id_pembeli = $request-> input('pembeli');
-        $id_transaksi= DB::select('fIDTRANSAKSI()');
+        $id_transaksi= DB::select('SELECT `fIDTRANSAKSI`() AS `fIDTRANSAKSI`;');
         $id_kategori = $request->input('Kategori');
         $nama_produk = $request->input('NamaProduk');
         $deskripsi_produk = $request->input('DeskripsiProduk');
