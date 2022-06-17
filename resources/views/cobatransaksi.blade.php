@@ -24,87 +24,62 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
-        <div class="container-fluid">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 style="float: left">Add TRANSAKSI Product</h4>
-                                <a href="#" style="float: right" class="btn btn-dark">+ Add Product</a>
-                                <div class="card-body">
-                                    <table class="table table-bordered table-left">
-                                        <thead>
-                                            <tr>
-                                            <th class="th-lg">ID Kategori</th>
-                                            <th class="th-lg">Nama Produk</th>
-                                            <th class="th-lg">Deskripsi Produk</th>
-                                            <th class="th-lg">Harga Produk</th>
-                                            <th class="th-lg">Jumlah Produk Transaksi</th>
-                                            <th><a href="#" class="btn btn-sm btn-success add_more"><i class=" fa fa-plus"></i></a></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="addMoreProduct">
-                                            <tr>
-                                                <td>
-                                                    <select name="id_kategori" id="idkategori" class="form-control id_kategori">
-                                                    
-                                                        <option value="KC001">CERMIN</option>
-                                                        <option value="KP001">KITCHEN SET</option>
-                                                        <option value="KP002">LEMARI</option>
-                                                        <option value="KP003">DIPAN</option>
-                                                        <option value="KP004">NAKAS</option>
-                                                        <option value="KP005">DISPLAY TV</option> 
-                                                        <option value="KP006">MEJA RIAS</option>
-                                                        <option value="KP007">MEJA BELAJAR</option>
-                                                        <option value="KP008">RAK SEPATU</option>
+        <form action="/cobatransaksi" method="post">
+        @csrf
+        <div class="col-12" style="padding-top: 10px">
+        <label for="inputPembeli" class="form-label">Nama Pembeli : </label>
+        <select name="pembeli" id="inputPembeli">
+            @foreach($pembeli as $pembeli)
+            <option value="{{$pembeli->ID_PEMBELI}}">{{$pembeli->NAMA_PEMBELI}}</option>
+            @endforeach
+</div>
+        <div class="col-12" style="padding-top: 10px">
+            <label for="inputKategori" class="form-label">Nama Kategori : </label>
             
-                                                    </select>
-                                                    
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="nama_produk[]" id="nama_produk" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <input type="text" name="deskripsi_produk[]" id="deskripsi_produk" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <input type="number" name="harga_produk[]" id="harga_produk" class="form-control">
-                                                </td>
-                                                <td>
-                                                    <input type="number" name="jumlah_produk[]" id="jumlah_produk" class="form-control">
-                                                </td>
-                                                <td><a href="#" class="btn btn-sm btn-danger delete"><i class=" fa fa-times"></i></a></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4>TOTAL</h4>
-                                </div>
-                                <div class="card-body">
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <select name="Kategori" id="inputKategori">
+              <option value="KC001">CERMIN</option>
+              <option value="KP001">KITCHEN SET</option>
+              <option value="KP002">LEMARI</option>
+              <option value="KP003">DIPAN</option>
+              <option value="KP004">NAKAS</option>
+              <option value="KP005">DISPLAY TV</option> 
+              <option value="KP006">MEJA RIAS</option>
+              <option value="KP007">MEJA BELAJAR</option>
+              <option value="KP008">RAK SEPATU</option>
+            </select> 
+            <span style="color: red">@error('NamaKategori'){{ $message }}@enderror</span>
         </div>
-     
-
-@section('script')
-<script>
-    $('.add_more').on('click',function(){
-        alert(0);
-    })
-</script>
-@endsection  
-
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputNamaProduk" class="form-label">Nama Produk : </label>
+        <input type="text" name="NamaProduk" class="form-control" id="inputNamaProduk" placeholder="" value="{{ old('NamaProduk')}}" />
+        <span style="color: red">@error('NamaProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputDeskripsiProduk" class="form-label">Deskripsi Produk : </label>
+        <input type="text" name="DeskripsiProduk" class="form-control" id="inputDeskripsiProduk" placeholder="" value="{{ old('DeskripsiProduk')}}" />
+        <span style="color: red">@error('DeskripsiProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputHargaProduk" class="form-label">Harga Produk : </label>
+        <input type="number" name="HargaProduk" class="form-control" id="inputHargaProduk" placeholder="" value="{{ old('HargaProduk')}}" />
+        <span style="color: red">@error('HargaProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputFotoProduk" class="form-label">Foto Produk : </label>
+        <input type="file" name="FotoProduk" class="form-control" id="inputFotoProduk" placeholder="" value="{{ old('FotoProduk')}}" />
+        <span style="color: red">@error('FotoProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12" style="padding-top: 10px">
+        <label for="inputJumlahProduk" class="form-label">Jumlah Produk Transaksi : </label>
+        <input type="number" name="JumlahProduk" class="form-control" id="inputJumlahProduk" placeholder="" value="{{ old('JumlahProduk')}}" />
+        <span style="color: red">@error('JumlahProduk'){{ $message }}@enderror</span>
+      </div>
+      <div class="col-12 text-center">
+        <button class="btn btn-primary" type="submit">Simpan!</button>
+      </div>
+    </form>
+    </div>
+    
   </body>
 </html>
 
